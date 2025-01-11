@@ -1,0 +1,15 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=Kumbh+Sans:wght@100..900&display=swap&family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap');
+//base
+@import "base/reset";
+@import "base/variables";
+@import "base/animations";
+@import "base/form";
+@import "base/mixins";
+@import "base/elements";
+@import "base/antd";
+
+//modules
+@import "modules/all";

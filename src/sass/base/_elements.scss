@@ -1,0 +1,114 @@
+//Any generic styles for the site. Shouldn't have any classes or ids for selectors.
+
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  width: 100%;
+  height: 100%;
+}
+
+body {
+  height: 100%;
+  font-family: $font;
+  box-sizing: border-box;
+}
+
+#root {
+  overflow: auto;
+  height: 100vh;
+
+  > div {
+    height: 100%;
+    background-color: $background-white;
+  }
+}
+
+/* img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+} */
+
+select,
+option,
+input[type="radio"] {
+  cursor: pointer;
+}
+
+a {
+  text-decoration: none;
+  cursor: pointer;
+  color: inherit;
+
+  &:hover {
+    color: #57157d;
+  }
+}
+
+h1,
+h2 {
+  font-weight: bold;
+}
+
+//cookies crm
+#myConsent {
+  > div {
+    background-color: #fc176f;
+
+    a {
+      background: linear-gradient(180deg, #57157d 0%, #7923aa 99.99%, rgba(121, 35, 170, 0) 100%) !important;
+      box-shadow: 0px 4px 20px rgba(187, 98, 238, 0.38);
+      color: #ffffff !important;
+      padding: 0.5em 1em !important;
+      border-radius: 10% !important;
+      margin: 0.5em 0;
+    }
+  }
+}
+
+.text-center {
+  text-align: center;
+}
+
+.primary-button {
+  background-color: #3e00c2;
+  border-radius: 15px;
+  color: $white;
+  font-weight: 400;
+}
+
+.primary-link-button,
+.primary-link-button span {
+  font-weight: bold;
+}
+
+.ant {
+  /* &-table-thead &-table-cell {
+    font-weight: bold;
+  }
+
+  &-collapse {
+    background-color: #fff;
+
+    &-header {
+      font-weight: bold;
+    }
+  }
+
+  &-table-title,
+  &-divider-inner-text {
+    font-weight: bold;
+  } */
+
+  /* &-input-affix-wrapper,
+  &-input-number {
+    border-radius: 5px;
+    width: 100%;
+  } */
+}

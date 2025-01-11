@@ -1,0 +1,33 @@
+.ant-input {
+  border-radius: 5px;
+}
+
+.ant-layout-sider,
+.ant-menu.ant-menu-dark,
+.ant-layout-header {
+}
+
+.ant-layout-sider-zero-width-trigger {
+  background: $primary-dark;
+  top: 10px
+}
+
+.ant-menu-item * {
+  font-weight: 500;
+  color: $white;
+}
+
+.ant-menu-dark.ant-menu-dark:not(.ant-menu-horizontal) .ant-menu-item-selected {
+  background-color: $primary-dark;
+}
+
+.ant-btn-primary {
+  background: $primary;
+  border-color: $primary;
+
+  &:focus,
+  &:hover {
+    background: $primary-dark;
+    border-color: $primary-dark;
+  }
+}
