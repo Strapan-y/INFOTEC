@@ -1,7 +1,6 @@
 import { Collapse, Input, Layout } from "antd";
 import Sider from "antd/es/layout/Sider";
 import { useState } from "react";
-import { ButtonMenu } from "../Component/buttonmenu";
 import house from "../assets/img/home.svg"
 import bars from "../assets/img/bars.svg"
 import Encuesta from "../assets/img/Encuesta.svg"
@@ -15,6 +14,7 @@ import { Content, Header } from "antd/es/layout/layout";
 import campain from "../assets/img/campain.svg"
 import message from "../assets/img/message.svg"
 import logo from "../assets/img/logo.svg"
+import { ButtonMenu } from "../Component/Buttonmenu/buttonmenu";
 
 
 interface MyComponentProps {
@@ -52,7 +52,7 @@ const PrivateLayout = (props: MyComponentProps) => {
       <Header className="bg-[#00AEEF] h-[5vw] flex justify-between items-center p-[1.5vw]">
         <div className="flex justify-between items-center h-full w-[50vw]">
           <img className="w-[3.5vw]" src={logo}/>
-          <Search className="w-[20vw] h-[3vw]" placeholder="input search text" enterButton />
+          <Search className="custon-search w-[20vw] h-[3vw]" placeholder="input search text" enterButton />
           
         </div>
         <div className="flex justify-end items-center h-full">
@@ -124,7 +124,7 @@ const PrivateLayout = (props: MyComponentProps) => {
           </div>
 
         </Sider>
-        <Content className='Content'>
+        <Content className='Content bg-[#BEEDFF] bg-opacity-35'>
           {props.children}
         </Content>
       </Layout >

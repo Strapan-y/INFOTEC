@@ -1,4 +1,27 @@
 .Layout {
+    .custon-search {
+        .ant-btn-primary{
+            background-color: #EFFBFF;
+            border: none;
+        }
+        .ant-btn-icon{
+            color: #2671B1;
+            width: 1.5vw;
+            
+            
+        }
+        .ant-btn-primary:hover,
+        .ant-btn-primary:focus,
+        .ant-btn-primary:active {
+            background-color: #EFFBFF;
+            border: none;
+        }
+
+        input:focus {
+            outline: none;
+            border: none;
+        }
+    }
     .Sider {
         background-color: white;
         box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25);

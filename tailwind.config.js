@@ -5,7 +5,14 @@ module.exports = {
     "./src/**/**/**/*.{js,jsx,ts,tsx}"
   ],
   theme: {
-    extend: {},
+    extend: {
+      fontFamily: {
+        caladea: ['Caladea', 'serif'],
+        inter: ['Inter', 'sans-serif'],
+        kumbh: ['Kumbh Sans', 'sans-serif'],
+        nunito: ['Nunito', 'sans-serif'],
+      },
+    },
   },
   plugins: [],
 }
