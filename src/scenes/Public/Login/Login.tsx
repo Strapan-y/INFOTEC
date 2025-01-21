@@ -5,6 +5,7 @@ import { useAuthSelectors } from '../../../services/Auth/AuthSelectors'
 import { authActions } from '../../../services/Auth/AuthSlice'
 import { useAppDispatch } from '../../../store/Store'
 import { useForm } from 'react-hook-form'
+import { TRUE } from 'sass'
 
 const { Item } = Form
 const { Password } = Input
@@ -41,8 +42,17 @@ const Login = () => {
   }, []) */
 
   return (
-    <div className='login'>
-      Login
+    <div className='flex justify-end items-start w-screen p-4 login'>
+      < button
+        className="bg-[white] p-[1vw] shadow text-[#016FB4] rounded-[5px] "
+        onClick={() => {
+          localStorage.setItem("accessToken", "true")
+          window.location.reload()
+        }}>
+        Ingresar
+      </button>
+
+      {/* Login"---Aqui lo demas----" */}
     </div>
   )
 }

@@ -1,12 +1,40 @@
-import { Layout } from "antd";
+import { Collapse, Input, Layout } from "antd";
 import Sider from "antd/es/layout/Sider";
 import { useState } from "react";
+import { ButtonMenu } from "../Component/buttonmenu";
+import house from "../assets/img/home.svg"
+import bars from "../assets/img/bars.svg"
+import Encuesta from "../assets/img/Encuesta.svg"
+import bd from "../assets/img/bd.svg"
+import IA from "../assets/img/IA.svg"
+import filled from "../assets/img/filled.svg"
+import articons from "../assets/img/arcticons.svg"
+import pen from "../assets/img/pen-ruler.svg"
+import users from "../assets/img/users.svg"
+import { Content, Header } from "antd/es/layout/layout";
+import campain from "../assets/img/campain.svg"
+import message from "../assets/img/message.svg"
+import logo from "../assets/img/logo.svg"
+
 
 interface MyComponentProps {
   children: React.ReactNode;
 }
 
+const { Search } = Input;
+
+const CustomSearch: React.FC = () => {
+  return (
+    <Search
+      className="w-[20vw] h-[3vw] custom-search"
+      placeholder="input search text"
+      enterButton
+    />
+  );
+};
+
 const PrivateLayout = (props: MyComponentProps) => {
+  const [collapsed, setCollapsed] = useState(false)
 
   /* const itemsSider = [
     {
@@ -21,19 +49,85 @@ const PrivateLayout = (props: MyComponentProps) => {
 
   return (
     <Layout className='Layout'>
-      <Sider
-        width={'22%'}
-        className='Sider'
-        style={{
-          display: 'flex',
-          flexDirection: 'column',
-          alignItems: 'center',
-          justifyContent: 'flex-start'
-        }}
-      >
-      
-      </Sider>
-      
+      <Header className="bg-[#00AEEF] h-[5vw] flex justify-between items-center p-[1.5vw]">
+        <div className="flex justify-between items-center h-full w-[50vw]">
+          <img className="w-[3.5vw]" src={logo}/>
+          <Search className="w-[20vw] h-[3vw]" placeholder="input search text" enterButton />
+          
+        </div>
+        <div className="flex justify-end items-center h-full">
+          <img className="w-[2vw]" src={message}/>
+          <img className="w-[2vw]" src={campain}/>
+          <p className="text-white text-[1.5vw]">Usuario</p>
+        </div>
+      </Header>
+      <Layout>
+
+        <Sider
+          width={"22vw"}
+          className='Sider'
+          collapsed={collapsed}
+          collapsedWidth={"6vw"}
+          style={{
+            display: 'flex',
+            flexDirection: 'column',
+            alignItems: 'center',
+            justifyContent: 'flex-start'
+          }}
+        >
+
+          <div className="flex flex-col items-center justify-start w-full  gap-[1.5vw]">
+            <div className="flex justify-start w-full">
+              <img className="w-[3vw]" src={bars} onClick={() => setCollapsed(!collapsed)} />
+            </div>
+
+            <ButtonMenu
+              img={house}
+              text={"Dashboard"}
+              isCollapsed={collapsed}
+            />
+            <ButtonMenu
+              img={users}
+              text={"Gestionar Usuarios"}
+              isCollapsed={collapsed}
+            />
+            <ButtonMenu
+              img={pen}
+              text={"Gestionar Modulo"}
+              isCollapsed={collapsed}
+            />
+            <ButtonMenu
+              img={filled}
+              text={"Gestionar Suscripcion"}
+              isCollapsed={collapsed}
+            />
+            <ButtonMenu
+              img={Encuesta}
+              text={"Gestionar Encuestas"}
+              isCollapsed={collapsed}
+            />
+            <ButtonMenu
+              img={bd}
+              text={"base de datos"}
+              isCollapsed={collapsed}
+            />
+            <ButtonMenu
+              img={IA}
+              text={"Gestionar Chat Bot"}
+              isCollapsed={collapsed}
+            />
+            <ButtonMenu
+              img={articons}
+              text={"Configuraciones"}
+              isCollapsed={collapsed}
+            />
+          </div>
+
+        </Sider>
+        <Content className='Content'>
+          {props.children}
+        </Content>
+      </Layout >
     </Layout >
   )
 }

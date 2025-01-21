@@ -88,15 +88,6 @@ export const times = [
     { code: 'D', description: 'Día' },
 ]
 
-export const ethnicGroups = [
-    { code: 'N', description: 'NINGUNO' },
-    { code: 'I', description: 'INDIGENA' },
-    { code: 'A', description: 'AFRO-COL' },
-    { code: 'M', description: 'MESTIZO' },
-    { code: 'P', description: 'PALENQUERO' },
-    { code: 'R', description: 'RAIZAL' },
-    { code: 'G', description: 'ROM' }
-]
 
 export const civilStatuses = [
     { code: 'S', description: 'SOLTERO' },
@@ -106,37 +97,14 @@ export const civilStatuses = [
     { code: 'V', description: 'VIUDO' }
 ]
 
-export const populationGroups = [
-    "COMUNIDADES INDÍGENAS", "ROM GITANOS", "MADRES COMUNITARIAS", "ARTISTAS, AUTORES, COMPOSITORES", "NEGRO, MULATO, AFROCOLOMBIANO, AFRODESCENDIENTE",
-    "OTRO GRUPO POBLACIONAL", "DISCAPACITADO", "DESMOVILIZADOS", "DESPLAZADOS", "POBLACION INFANTIL A CARGO DEL ICBF", "INDIGENTES",
-    "POBLACIÓN EN CENTROS PSIQUIATRICOS", "MIGRATORIOS", "POBLACIÓN EN CENTROS CARCELARIOS", "POBLACIÓN RURAL NO MIGRATORIA",
-    "POBLACIÓN DE LA TERCERA EDAD EN PROTECCIÓN DE ANCIANATOS", "NUEVE SENTENCIAS DE LA CID CORTE INTERAMERICANA DE DERECHOS HUMANOS",
-    "NO DEFINIDO", "INDEFINIDO"
-]
 
-export const indigenousPeopleS = [
-    "Achagua", "Aruaco", "Awá", "Bará", "Barasana", "Barí", "Camsá", "Cocama", "Cofán", "Cuiba", "Curripaco", "Desano", "Embera", "Inga",
-    "Jiw", "Kankuamo", "Kichwa", "Kogui", "Kubeo", "Kuna", "Makaguaje", "Makuna", "Mamlaba", "Matapí", "Miraña", "Misak", "Mokaná",
-    "Muina-Murui", "Muisca", "Nasa", "Nonuya", "Ocaina", "Pastos", "Piaroa", "Piapoco", "Pijao", "Piratapuyo", "Pisamira",
-    "Saaliva", "Siona", "Sikuani", "Taiwano", "Tanimuca", "Tariano", "Ticuna", "Totoro", "Tucano", "Tukano", "U'wa", "Uitoto", "Wanano",
-    "Wayuu", "Wiwa", "Wounaan", "Yagua", "Yanacona", "Yukpa", "Yuruti", "Zenú", "Sáliba", "Chocó", "Páez", "Guambiano", "Cubeo", "Guayabero",
-    "Kurripako", "Witoto", "Arhuaco", "Carijona", "Hitnü", "Huitoto", "Kamsá", "Puinave", "Yamalero", "Nukak", "Cacua", "Caiqueto",
-    "Hupo", "Kakua", "Carabayo", "Kisgo", "Maguaje", "Maya", "Puimamo", "San Salvador", "Siriano", "Tariano", "Tapuyo", "Waunan", "Siriano",
-    "Tukano", "Yapur", "Aroa", "Erara", "Kamsá", "Kariña", "Makaguaje", "Napo", "Noanamá", "Omagua", "Patuyo", "Puinave", "Siona", "Tapuaya",
-    "Tukano", "Wanano", "Wayana", "Yagua", "Yari", "Zenu", "Zio", "Haguchá", "Itubo", "Iwio", "Jibaré", "Motilón", "Yabizo", "Yagua", "Yukuna",
-    "Amorua", "Andaquí", "Andoke", "Cabiyari", "Cofan", "Cuiba", "Carabayo", "Camsá", "Guahibo", "Guayabero", "Hitnü", "Hupda", "Karijona",
-    "Kogui", "Makuna", "Maku", "Mirití", "Muinane", "Murui", "Nonuya", "Okaina", "Ocaina", "Piapoco", "Puindekeri", "Saíra", "Tanimuka",
-    "Tatuyo", "Tucano", "Tucano", "Tuyuka", "Wanano", "Witoto", "Yagua", "Yaruro", "Yukpa", "Yuruti", "Kakua", "Aroa", "Arawa", "Cabiyarí",
-    "Canamari", "Katanga", "Kayapo", "Kawaiwete", "Kurripako", "Makuna", "Matapi", "Mura", "Parintintin", "Sateré", "Tanimuka", "Tucano",
-    "Waorani", "Yanomami", "Yuruti"
-]
 
 export const vulnerableGroupsS = [
     "prueba"
 ]
 
 
-export const countriesOrigin = [
+export const countries = [
     "Afghanistan", "Albania", "Algeria", "Andorra", "Angola", "Antigua and Barbuda",
     "Argentina", "Armenia", "Australia", "Austria", "Azerbaijan", "Bahamas", "Bahrain",
     "Bangladesh", "Barbados", "Belarus", "Belgium", "Belize", "Benin", "Bhutan",
@@ -170,134 +138,6 @@ export const countriesOrigin = [
     "Vatican City", "Venezuela", "Vietnam", "Yemen", "Zambia", "Zimbabwe"
 ]
 
-export const responsableRelationshipTypes = [
-    "Padre/M", "Tio (a)", "Hermano (a)", "Vecino(a)", "Esposo (a)", "Conocido", "Primo (a)", "Primo Herm",
-    "El mismo", "Abuelo(a)", "Amigo(a)", "Otro"
-]
-
-export const patientProfessions = [
-    "Ama de casa", "Estudiante", "Desempleado", "Pensionado", "Independiente", "Médico", "Ingeniero civil", "Abogado", "Arquitecto",
-    "Psicólogo clínico", "Científico de datos", "Profesor universitario", "Investigador científico", "Piloto de aviación comercial",
-    "Diseñador de software", "Economista", "Analista financiero", "Administrador de empresas", "Periodista investigativo", "Geólogo",
-    "Biólogo marino", "Consultor de estrategia empresarial", "Director de marketing", "Farmacéutico", "Nutricionista clínico",
-    "Ingeniero biomédico", "Físico teórico", "Matemático investigador", "Traductor e intérprete", "Escritor técnico",
-    "Diseñador industrial", "Cirujano", "Veterinario", "Oceanógrafo", "Psiquiatra", "Consultor de recursos humanos", "Analista de sistemas",
-    "Analista de seguridad informática", "Fotógrafo profesional", "Director de cine", "Artista digital", "Fotógrafo forense",
-    "Director de orquesta", "Juez", "Bombero especializado en rescate", "Actor de teatro", "Escultor", "Director de arte",
-    "Coreógrafo", "Chef ejecutivo", "Somelier", "Coach ejecutivo", "Director de operaciones", "Director de recursos humanos",
-    "Ingeniero aeroespacial", "Biólogo molecular", "Paleontólogo", "Criminólogo", "Epidemiólogo", "Genetista", "Investigador de mercado",
-    "Planificador urbano", "Auditor financiero", "Fisioterapeuta", "Terapeuta ocupacional", "Director de proyectos", "Director creativo",
-    "Consultor de comunicaciones", "Editor científico", "Astrónomo", "Escritor médico", "Director de logística", "Geógrafo",
-    "Ingeniero de software", "Ingeniero eléctrico", "Diseñador de experiencia de usuario (UX)", "Desarrollador de videojuegos",
-    "Diseñador gráfico", "Ingeniero de telecomunicaciones", "Ingeniero ambiental", "Consultor SAP", "Analista de riesgos financieros",
-    "Gerente de proyectos de construcción", "Neurólogo", "Psicólogo educativo", "Médico forense", "Ingeniero estructural", "Biocientífico",
-    "Piloto de helicóptero de rescate", "Editor de contenido digital", "Consultor de negocios internacionales", "Gerente de operaciones",
-    "Diseñador de moda", "Director de eventos", "Investigador de inteligencia artificial", "Ingeniero de sistemas de control",
-    "Físico nuclear", "Historiador del arte", "Ingeniero de robótica", "Analista de políticas públicas", "Planificador financiero",
-    "Gerontólogo", "Biólogo evolutivo", "Ingeniero de minas", "Analista de datos", "Ingeniero de redes", "Ingeniero de seguridad industrial",
-    "Antropólogo", "Consultor de marketing digital", "Meteorólogo", "Diplomático", "Analista de cadena de suministro", "Estadístico",
-    "Médico radiólogo", "Ingeniero de calidad", "Gerente de recursos humanos", "Médico cirujano", "Dentista especializado",
-    "Ingeniero de diseño mecánico", "Diseñador de interiores", "Científico de materiales", "Economista ambiental", "Ingeniero de energías renovables",
-    "Analista de negocios", "Director de tecnología", "Especialista en seguridad informática", "Terapeuta de lenguaje y habla",
-    "Biostatístico", "Investigador de enfermedades tropicales", "Director de recursos naturales", "Consultor de ingeniería civil",
-    "Explorador submarino", "Etnólogo", "Escritor legal", "Médico veterinario especializado", "Ingeniero acústico", "Diseñador de juguetes",
-    "Director de museo", "Especialista en nanotecnología", "Director de operaciones de emergencia", "Ingeniero de diseño industrial",
-    "Coreólogo", "Consultor de seguridad cibernética", "Artista de efectos visuales", "Gerente de ventas internacionales",
-    "Director de sostenibilidad", "Investigador de oceanografía", "Psicólogo deportivo", "Agrónomo", "Biólogo celular", "Escritor científico",
-    "Consultor de gestión de riesgos", "Ingeniero de sistemas espaciales", "Físico de partículas", "Analista de política energética",
-    "Especialista en relaciones públicas", "Cirujano cardiovascular", "Investigador de astronomía", "Director de innovación",
-    "Asesor financiero", "Gerente de cadena de suministro", "Consultor de desarrollo empresarial", "Médico de emergencias",
-    "Ingeniero de materiales", "Piloto de pruebas aéreas", "Bioclimatólogo", "Ingeniero de control de calidad", "Terapeuta respiratorio",
-    "Consultor de investigación de mercado", "Ingeniero de automatización industrial", "Artista conceptual", "Gerente de proyectos de TI",
-    "Diseñador de productos", "Médico radioterapeuta", "Ingeniero de seguridad cibernética", "Ingeniero de software embebido",
-    "Ergónomo", "Director de producción audiovisual", "Ingeniero de telecomunicaciones", "Ingeniero de diseño electrónico",
-    "Geofísico", "Especialista en sistemas de información geográfica", "Tecnólogo médico", "Especialista en recursos hídricos",
-    "Director de desarrollo de software", "Estratega digital", "Ingeniero de manufactura", "Arqueólogo", "Asesor de políticas públicas",
-    "Investigador de biotecnología", "Ingeniero de sistemas de información", "Director de recursos culturales", "Consultor de experiencia de usuario (UX)",
-    "Ingeniero de vehículos eléctricos", "Genetista forense", "Ingeniero de realidad virtual", "Diseñador de escenarios",
-    "Investigador de ciencias del comportamiento", "Ingeniero de inteligencia artificial", "Ingeniero de sistemas de navegación",
-    "Analista de sistemas informáticos", "Asesor de inversiones", "Ingeniero de diseño de software", "Cirujano plástico",
-    "Médico oftalmólogo", "Ingeniero de microelectrónica", "Diseñador de efectos especiales", "Fotógrafo de naturaleza",
-    "Gerente de sostenibilidad ambiental", "Ingeniero de investigación y desarrollo", "Especialista en educación ambiental",
-    "Consultor de ciberseguridad industrial", "Director de políticas de salud pública", "Investigador de inteligencia artificial",
-    "Especialista en ergonomía", "Ingeniero de robótica móvil", "Economista de desarrollo", "Biólogo vegetal", "Ingeniero de sistemas de transporte",
-    "Especialista en rehabilitación física", "Ingeniero de sistemas fotovoltaicos", "Diseñador de realidad aumentada",
-    "Consultor de estrategias de marca", "Médico oncólogo", "Director de desarrollo urbano", "Ingeniero de sistemas de armamento",
-    "Escritor de ciencia ficción", "Analista de investigación de operaciones", "Diseñador de aplicaciones móviles",
-    "Fotógrafo de moda", "Gerente de cumplimiento normativo", "Consultor de ética empresarial", "Ingeniero de propulsión aeroespacial",
-    "Ingeniero de estructuras", "Otro"
-]
-
-export const allergies = [
-    {
-        name: "Alimentos",
-        reports: [
-            "Mariscos", "Pescado", "Nueces", "Maní", "Huevo", "Leche", "Condimentos", "Aditivos"
-        ]
-    },
-    {
-        name: "En el Ambiente",
-        reports: [
-            "Polen", "Polvo", "Pastos", "Antigeno", "Productos Quimicos"
-        ]
-    },
-    {
-        name: "En Contacto con la Piel",
-        reports: [
-            "Detergente", "Jabón", "Látex"
-        ]
-    },
-    {
-        name: "Picadura de Insectos",
-        reports: [
-            "Avispas", "Abejas"
-        ]
-    },
-    {
-        name: "Medicamentos",
-        reports: [
-            ""
-        ]
-    },
-]
-
-export const allergiesStatus = [
-    "En diagnostico", "En tratamiento", "En sensibilización"
-]
-
-export const allergiesTypes = [
-    "Inmediata", "Citotoxina", "Compleja Inmunológica", "Retardada"
-]
-
-export const pathologyStatuses = [
-    "DETECTADA", "CONTROL", "TRATADA"
-]
-
-export const procedureTypes = [
-    "TRANSFUCIONAL", "TERAPEUTICO", "QUIRURGICO", "GINECOLOGICO"
-]
-
-export const frequencies = [
-    "Por Dia", "Por Semana", "Por Mes", "Ocasional", "Sin Dato"
-]
-
-export const bloodTypes = [
-    "A", "B", "AB", "O"
-]
-
-export const RHs = [
-    "Positivo", "Negativo"
-]
-
-export const units = [
-    "mg", "ml",
-]
-
-export const routesOfAdministration = [
-    "Tópica", "Oral", "Intravaginal", "Oftálmico", "Ótica", "Intralesional", "Intranasal", "Sublingual",
-    "Rectal", "Intradérmica", "Subcutánea", "Intramuscular", "Endovenosa", "Intracardiaca", "intraRaquidea",
-    "IntraArticular", "Inhalatoria"
-]
 
 export const frequenciesDose = [
     "Mes(Es)", "Noche(s)", "Horas(s)", "Días(s)", "Semanal", "En la Noche", "En Ayunas", "Con el Almuerzo",
