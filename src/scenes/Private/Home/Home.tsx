@@ -123,7 +123,7 @@ export const Home = () => {
                         <div className="rounded-lg h-[80%] w-full overflow-y-auto">
                             {alumejem.map((alum) => {
                                 const getProgressColor = () => {
-                                    if (alum.progreso >= 70) {
+                                    if (alum.progreso >= 80) {
                                         return "#B7F651"; // Verde
                                     } else if (alum.progreso >= 50) {
                                         return "#FFE552"; // Amarillo

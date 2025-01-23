@@ -1,4 +1,4 @@
-import { Collapse, Input, Layout } from "antd";
+import {Input, Layout } from "antd";
 import Sider from "antd/es/layout/Sider";
 import { useState } from "react";
 import house from "../assets/img/home.svg"
@@ -15,7 +15,7 @@ import campain from "../assets/img/campain.svg"
 import message from "../assets/img/message.svg"
 import logo from "../assets/img/logo.svg"
 import { ButtonMenu } from "../Component/Buttonmenu/buttonmenu";
-import { useLocation, useNavigate } from "react-router-dom";
+import {useLocation, useNavigate } from "react-router-dom";
 
 
 interface MyComponentProps {
@@ -24,19 +24,13 @@ interface MyComponentProps {
 
 const { Search } = Input;
 
-const CustomSearch: React.FC = () => {
-  return (
-    <Search
-      className="w-[20vw] h-[3vw] custom-search"
-      placeholder="Buscar..."
-      enterButton
-    />
-  );
-};
+
 
 const PrivateLayout = (props: MyComponentProps) => {
   const [collapsed, setCollapsed] = useState(false)
   const navegation = useNavigate()
+  const Location = useLocation()
+
   /* const itemsSider = [
     {
       name: 'Dashboard',
@@ -53,7 +47,7 @@ const PrivateLayout = (props: MyComponentProps) => {
       <Header className="bg-[#00AEEF] h-[5vw] flex justify-between items-center p-[1.5vw]">
         <div className="flex justify-between items-center h-full w-[50vw]">
           <img className="w-[3.5vw]" src={logo}/>
-          <Search className="custon-search w-[20vw] h-[3vw]" placeholder="Buscar..." enterButton />
+          {Location.pathname == "/" && <Search className="custon-search w-[20vw] h-[3vw]" placeholder="Buscar..." enterButton />}
           
         </div>
         <div className="flex justify-end items-center h-full">
