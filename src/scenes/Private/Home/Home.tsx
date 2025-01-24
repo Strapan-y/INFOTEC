@@ -86,7 +86,7 @@ export const Home = () => {
 
 
             {/* Aqui va el tercer card de informacion*/}
-            <div className="flex flex-col justify-start h-full w-[25%] bg-opacity-35 gap-[1.5vw]">
+            <div className="flex flex-col justify-start h-full w-[20%] bg-opacity-35 gap-[1.5vw]">
                 <div className="bg-[white] rounded-lg shadow-lg  w-full">
                     <div className=" w-full bg-[#00AEEF] rounded-t-lg shadow-md flex flex-col items-center justify-center text-white p-[1vw]">
                         <div className="text-[2.5rem] font-bold leading-none">22</div>

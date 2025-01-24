@@ -91,13 +91,13 @@ const PrivateLayout = (props: MyComponentProps) => {
             <ButtonMenu
               img={pen}
               text={"Gestionar Modulo"}
-              onClick={() => navegation('/users')}
+              onClick={() => navegation('/academic')}
               isCollapsed={collapsed}
             />
             <ButtonMenu
               img={filled}
               text={"Gestionar Suscripcion"}
-              onClick={() => navegation('/users')}
+              onClick={() => navegation('/suscription')}
               isCollapsed={collapsed}
             />
             <ButtonMenu
