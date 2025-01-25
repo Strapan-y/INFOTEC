@@ -3,6 +3,7 @@ import PrivateLayout from "../../layouts/PrivateLayout";
 import { Home } from "./Home/Home";
 import { Users } from "./Users/Users";
 import { Academic } from "./Academic/Academic";
+import { Inventory } from "./Inventory/Inventory";
 
 const Private = () => {
   return (
@@ -12,6 +13,7 @@ const Private = () => {
           <Route path="/" element={<Home />} />
           <Route path="/users" element={<Users />} />
           <Route path="/academic" element={<Academic />} />
+          <Route path="/inventory" element={<Inventory />} />
           <Route path="*" element={<Navigate to="/" />} />
         </Routes>
       </PrivateLayout>

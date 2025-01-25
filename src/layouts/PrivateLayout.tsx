@@ -97,7 +97,7 @@ const PrivateLayout = (props: MyComponentProps) => {
             <ButtonMenu
               img={filled}
               text={"Gestionar Suscripcion"}
-              onClick={() => navegation('/suscription')}
+              onClick={() => navegation('/Inventory')}
               isCollapsed={collapsed}
             />
             <ButtonMenu
