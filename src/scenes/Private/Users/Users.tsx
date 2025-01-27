@@ -157,7 +157,7 @@ export const Users = () => {
                     </div>
                 </Modal>
 
-                <Modal title="REGISTRAR EMPRESA" width={"40vw"} open={isModalRegistro} footer={null} onCancel={() => setIsModalRegistro(false)}>
+                <Modal title="REGISTRAR EMPRESA" width={"60vw"} open={isModalRegistro} footer={null} onCancel={() => setIsModalRegistro(false)}>
                     <div className='border-t-[0.2vw] justify-center border-solid border-gray-100 w-full flex flex-wrap pt-[1vw] gap-4'>
                         <div>
                             <h1 className='p-1 px-3'>NIT</h1>
@@ -220,6 +220,39 @@ export const Users = () => {
                                             if (selectedOption === undefined) {
                                                 setValueEmpresaData("suscription", "");
                                                 setSelectedLabel("");
+                                            }
+                                        }}
+                                    />
+                                )}
+                            />
+
+                            {errorsEmpresaData.department && <p className='errorMessage relativeTop'>{errorsEmpresaData.department.message}</p>}
+                        </div>
+                        <div>
+                            <h1 className="pSelect p-1 px-3">PAIS <label style={{ color: '#DD2025', marginLeft: '0.2vw' }}>*</label></h1>
+                            <Controller
+                                name="department"
+                                control={controlEmpresaData}
+                                render={({ field }) => (
+                                    <AutoComplete
+                                        {...field}
+                                        value={watchEmpresaData('department')}
+                                        className="select h-[2vw] custom-selector"
+                                        style={{ width: '10.3vw', borderRadius: '0.5vw' }}
+                                        placeholder="Seleccione"
+                                        options={departments.map((department) => ({
+                                            value: department.department,
+                                            label: department.department,
+                                        }))}
+                                        filterOption={(inputValue, option) =>
+                                            option ? option.value.toUpperCase().indexOf(inputValue.toUpperCase()) !== -1 : false
+                                        }
+                                        onBlur={() => {
+                                            const selectedOption = departments.find((department) => department.department === watchEmpresaData('department'));
+                                            if (selectedOption === undefined) {
+                                                setValueEmpresaData('department', '');
+                                            } else {
+                                                /* setValuePersonalData('sexText', selectedOption); */
                                             }
                                         }}
                                     />
@@ -442,6 +475,86 @@ export const Users = () => {
                             {errorsEmpresaData.department && <p className='errorMessage relativeTop'>{errorsEmpresaData.department.message}</p>}
                         </div>
                         <div>
+                            <h1 className="pSelect p-1 px-3">EMPRESA <label style={{ color: '#DD2025', marginLeft: '0.2vw' }}>*</label></h1>
+                            <Controller
+                                name="suscription"
+                                control={controlEmpresaData}
+                                render={({ field }) => (
+                                    <AutoComplete
+                                        value={inputValue || selectedLabel}
+                                        className="select h-[2vw] custom-selector"
+                                        style={{ width: "10.3vw", borderRadius: '0.5vw' }}
+                                        placeholder="Seleccione"
+                                        options={Suscription.map((suscri) => ({
+                                            value: suscri.id,
+                                            label: suscri.name,
+                                        }))}
+                                        onSelect={(value, option) => {
+                                            setSelectedLabel(option.label as string); // Establecemos el label
+                                            setInputValue(""); // Limpiamos el input ya que el valor seleccionado es ahora el que se muestra
+                                            setValueEmpresaData("suscription", value); // Guardamos el id (value) para enviarlo al backend
+                                        }}
+                                        onChange={(data) => {
+                                            setInputValue(data);
+                                            setSelectedLabel("");
+                                        }}
+                                        filterOption={(inputValue, option) =>
+                                            option
+                                                ? String(option.value)
+                                                    .toUpperCase()
+                                                    .indexOf(inputValue.toUpperCase()) !== -1
+                                                : false
+                                        }
+                                        onBlur={() => {
+                                            const selectedOption = Suscription.find(
+                                                (suscri) =>
+                                                    String(suscri.id) === watchEmpresaData("suscription")
+                                            );
+                                            if (selectedOption === undefined) {
+                                                setValueEmpresaData("suscription", "");
+                                                setSelectedLabel("");
+                                            }
+                                        }}
+                                    />
+                                )}
+                            />
+
+                            {errorsEmpresaData.department && <p className='errorMessage relativeTop'>{errorsEmpresaData.department.message}</p>}
+                        </div>
+                        <div>
+                            <h1 className="pSelect p-1 px-3">PAIS <label style={{ color: '#DD2025', marginLeft: '0.2vw' }}>*</label></h1>
+                            <Controller
+                                name="department"
+                                control={controlEmpresaData}
+                                render={({ field }) => (
+                                    <AutoComplete
+                                        {...field}
+                                        value={watchEmpresaData('department')}
+                                        className="select h-[2vw] custom-selector"
+                                        style={{ width: '10.3vw', borderRadius: '0.5vw' }}
+                                        placeholder="Seleccione"
+                                        options={departments.map((department) => ({
+                                            value: department.department,
+                                            label: department.department,
+                                        }))}
+                                        filterOption={(inputValue, option) =>
+                                            option ? option.value.toUpperCase().indexOf(inputValue.toUpperCase()) !== -1 : false
+                                        }
+                                        onBlur={() => {
+                                            const selectedOption = departments.find((department) => department.department === watchEmpresaData('department'));
+                                            if (selectedOption === undefined) {
+                                                setValueEmpresaData('department', '');
+                                            } else {
+                                                /* setValuePersonalData('sexText', selectedOption); */
+                                            }
+                                        }}
+                                    />
+                                )}
+                            />
+
+                            {errorsEmpresaData.department && <p className='errorMessage relativeTop'>{errorsEmpresaData.department.message}</p>}
+                        </div>
+                        <div>
                             <h1 className="pSelect p-1 px-3">DEPARTAMENTO <label style={{ color: '#DD2025', marginLeft: '0.2vw' }}>*</label></h1>
                             <Controller
                                 name="department"
@@ -573,7 +686,7 @@ export const Users = () => {
                 </Modal>
 
 
-                <Modal title="EDITAR EMPRESA" width={"40vw"} open={isModalEdit} footer={null} onCancel={() => setIsModalEdit(false)}>
+                <Modal title="EDITAR EMPRESA" width={"60vw"} open={isModalEdit} footer={null} onCancel={() => setIsModalEdit(false)}>
                     <div className='border-t-[0.2vw] justify-center border-solid border-gray-100 w-full flex flex-wrap pt-[1vw] gap-4'>
                         <div>
                             <h1 className='p-1 px-3'>NIT</h1>
@@ -632,6 +745,39 @@ export const Users = () => {
                                             if (selectedOption === undefined) {
                                                 setValueEmpresaData("suscription", "");
                                                 setSelectedLabel("");
+                                            }
+                                        }}
+                                    />
+                                )}
+                            />
+
+                            {errorsEmpresaData.department && <p className='errorMessage relativeTop'>{errorsEmpresaData.department.message}</p>}
+                        </div>
+                        <div>
+                            <h1 className="pSelect p-1 px-3">PAIS <label style={{ color: '#DD2025', marginLeft: '0.2vw' }}>*</label></h1>
+                            <Controller
+                                name="department"
+                                control={controlEmpresaData}
+                                render={({ field }) => (
+                                    <AutoComplete
+                                        {...field}
+                                        value={watchEmpresaData('department')}
+                                        className="select h-[2vw] custom-selector"
+                                        style={{ width: '10.3vw', borderRadius: '0.5vw' }}
+                                        placeholder="Seleccione"
+                                        options={departments.map((department) => ({
+                                            value: department.department,
+                                            label: department.department,
+                                        }))}
+                                        filterOption={(inputValue, option) =>
+                                            option ? option.value.toUpperCase().indexOf(inputValue.toUpperCase()) !== -1 : false
+                                        }
+                                        onBlur={() => {
+                                            const selectedOption = departments.find((department) => department.department === watchEmpresaData('department'));
+                                            if (selectedOption === undefined) {
+                                                setValueEmpresaData('department', '');
+                                            } else {
+                                                /* setValuePersonalData('sexText', selectedOption); */
                                             }
                                         }}
                                     />

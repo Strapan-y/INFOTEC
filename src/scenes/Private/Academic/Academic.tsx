@@ -1,18 +1,26 @@
-import { Input, Modal } from "antd";
+import { DatePicker, GetProp, Input, Modal, Select, Switch, Upload, UploadProps, message } from "antd";
 import { AcademiCard } from "../../../Component/AcademiCard/AcademiCard";
 import filled from "../../../assets/img/filled.svg";
 import mass from "../../../assets/img/Mas.svg";
 import { useForm } from 'react-hook-form';
-import { useRef, useState } from "react";
-import { Editor } from '@tinymce/tinymce-react';
+import { useState } from "react";
+import { LoadingOutlined, PlusOutlined } from "@ant-design/icons";
+import dayjs from "dayjs";
+
 
 const { Search } = Input;
-
+type FileType = Parameters<GetProp<UploadProps, 'beforeUpload'>>[0];
 
 
 export const Academic = () => {
     const [isModalRegistro, setIsModalRegistro] = useState(false);
     const [inputValue, setInputValue] = useState("");
+    const [loading, setLoading] = useState(false);
+    const { RangePicker } = DatePicker;
+
+    const onChange = (checked: boolean) => {
+        console.log(`switch to ${false}`);
+    };
 
     const handleInputChange = (e: { target: { value: string; }; }, name: any) => {
         const value = e.target.value.replace(/[^0-9]/g, ""); // Permitir solo números
@@ -23,6 +31,24 @@ export const Academic = () => {
         const value = e.target.value.replace(/[^a-zA-ZáéíóúÁÉÍÓÚüÜñÑ\s]/g, ""); // Permitir solo letras, espacios y caracteres acentuados
         setValueEmpresaData(name, value);
     };
+    const beforeUpload = (file: FileType) => {
+        const isJpgOrPng = file.type === 'image/jpeg' || file.type === 'image/png';
+        if (!isJpgOrPng) {
+            message.error('You can only upload JPG/PNG file!');
+        }
+    };
+    const handleChange: UploadProps['onChange'] = (info) => {
+        if (info.file.status === 'uploading') {
+            return true;
+        }
+    };
+    const [imageUrl, setImageUrl] = useState<string>();
+    const uploadButton = (
+        <button style={{ border: 0, background: 'none' }} type="button">
+            {loading ? <LoadingOutlined /> : <PlusOutlined />}
+            <div style={{ marginTop: 8 }}>Upload</div>
+        </button>
+    );
 
     const {
         register: registercontrolEmpresaData,
@@ -40,6 +66,7 @@ export const Academic = () => {
             documentText: '',
             nationality: '',
             idNumber: '',
+
             historyNumber: '',
             department: '',
             municipality: '',
@@ -105,34 +132,26 @@ export const Academic = () => {
                             style={{ width: "10.3vw", }}
                         />
                     </div>
-                    <div>
-                        <h1 className='p-1 px-3'>DOCENTE</h1>
-                        <input
-                            className="border-[0.1vw] h-[2vw] border-solid border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-gray-200 p-2 text-gray-800"
-                            {...registercontrolEmpresaData("name", {})}
-                            onChange={(e) => handleInputKeys(e, "name")}
-                            value={watchEmpresaData("name")}
-                            placeholder="Escribe el nombre"
+                    <div className="selectDiv">
+                        <h1 className="pSelect p-1 px-3">DOCENTE <label style={{ color: '#DD2025', marginLeft: '0.2vw' }}>*</label></h1>
+                        <Select
+                            placeholder="selecciona"
                             style={{ width: "10.3vw", }}
                         />
+
+
                     </div>
                     <div>
                         <h1 className='p-1 px-3'>COMPARTIR CON</h1>
-                        <input
-                            className="border-[0.1vw] h-[2vw] border-solid border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-gray-200 p-2 text-gray-800"
-                            {...registercontrolEmpresaData("telefono", {})}
-                            onChange={(e) => handleInputChange(e, "telefono")}
-                            value={watchEmpresaData("telefono")}
-                            placeholder="Escribe el numero"
+                        <Select
+                            placeholder="selecciona"
                             style={{ width: "10.3vw", }}
                         />
                     </div>
                     <div>
                         <h1 className='p-1 px-3'>CATEGORIA</h1>
-                        <input
-                            className="border-[0.1vw] h-[2vw] border-solid border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-gray-200 p-2 text-gray-800"
-                            type="text"
-                            placeholder="Escribe el nombre"
+                        <Select
+                            placeholder="selecciona"
                             style={{ width: "10.3vw", }}
                         />
                     </div>
@@ -145,22 +164,15 @@ export const Academic = () => {
                             style={{ width: "10.3vw", }}
                         />
                     </div>
-                    <div>
-                        <h1 className="pSelect p-1 px-3">ICONO DEL PROGRAMA</h1>
-                        <input
-                            className="border-[0.1vw] h-[2vw] border-solid border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-gray-200 p-2 text-gray-800"
-                            type="email"
-                            placeholder="Escribe el nombre"
-                            style={{ width: "10.3vw", }}
-                        />
-                    </div>
+
                     <div>
                         <h1 className='p-1 px-3'>PRECIO</h1>
+                        <Switch defaultChecked onChange={onChange} />
                         <input
                             className="border-[0.1vw] h-[2vw] border-solid border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-gray-200 p-2 text-gray-800"
                             type="text"
                             placeholder="Escribe el nombre"
-                            style={{ width: "10.3vw", }}
+                            style={{ width: "9vw", }}
                         />
                     </div>
 
@@ -168,21 +180,44 @@ export const Academic = () => {
                         <h1 className='p-1 px-3'>FECHA DE CREACION</h1>
                         <input
                             className="border-[0.1vw] h-[2vw] border-solid border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-gray-200 p-2 text-gray-800"
-                            type="text"
+                            type="date"
                             placeholder="Escribe el nombre"
                             style={{ width: "10.3vw", }}
                         />
                     </div>
 
+                    <div>
+                        <h1 className='p-1 px-3'>FECHA DE PUBLICACION</h1>
+                        <Switch defaultChecked onChange={onChange} />
+                        <input
+                            className="border-[0.1vw] h-[2vw] border-solid border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-gray-200 p-2 text-gray-800"
+                            type="date"
+                            placeholder="Escribe el nombre"
+                            style={{ width: "10.3vw", }}
+                        />
+                    </div>
+                    <div>
+                        <h1 className="pSelect p-1 px-3">ICONO DEL PROGRAMA</h1>
+                        <Upload
+                            name="avatar"
+                            listType="picture-circle"
+                            className="avatar-uploader"
+                            showUploadList={false}
+                            style={{ width: "7vw", }}
+                            action="https://660d2bd96ddfa2943b33731c.mockapi.io/api/upload"
+                            beforeUpload={beforeUpload}
+                            onChange={handleChange}
+                        >
+                            {imageUrl ? <img src={imageUrl} alt="avatar" style={{ width: '0.2vw' }} /> : uploadButton}
+                        </Upload>
+
+                    </div>
+
                     <button className="bg-[#00AEEF] text-white font-semibold px-2 py-2 rounded-lg ml-2 hover:bg-[#BEEDFF] hover:border-2 hover:border-[#016FB4] hover:text-[#016FB4]" onClick={() => setIsModalRegistro(true)}>
                         CREAR PROGRAMA
                     </button>
-
-
                 </div>
             </Modal>
-
-
 
         </div>
     );
