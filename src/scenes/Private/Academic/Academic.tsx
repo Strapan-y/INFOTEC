@@ -1,11 +1,11 @@
-import { DatePicker, GetProp, Input, Modal, Select, Switch, Upload, UploadProps, message } from "antd";
-import { AcademiCard } from "../../../Component/AcademiCard/AcademiCard";
+import { GetProp, Input, Modal, Select, Switch, Upload, UploadProps, message } from "antd";
 import filled from "../../../assets/img/filled.svg";
 import mass from "../../../assets/img/Mas.svg";
 import { useForm } from 'react-hook-form';
 import { useState } from "react";
 import { LoadingOutlined, PlusOutlined } from "@ant-design/icons";
-import dayjs from "dayjs";
+import { AcademiCard } from "../../../Component/AcademiCard/AcademiCard";
+import { useNavigate } from "react-router-dom";
 
 
 const { Search } = Input;
@@ -16,7 +16,8 @@ export const Academic = () => {
     const [isModalRegistro, setIsModalRegistro] = useState(false);
     const [inputValue, setInputValue] = useState("");
     const [loading, setLoading] = useState(false);
-    const { RangePicker } = DatePicker;
+    const navigate = useNavigate()
+
 
     const onChange = (checked: boolean) => {
         console.log(`switch to ${false}`);
@@ -36,12 +37,33 @@ export const Academic = () => {
         if (!isJpgOrPng) {
             message.error('You can only upload JPG/PNG file!');
         }
+        const isLt2M = file.size / 1024 / 1024 < 2;
+        if (!isLt2M) {
+            message.error('Image must smaller than 2MB!');
+        }
+        return isJpgOrPng && isLt2M;
     };
+
+    const getBase64 = (img: FileType, callback: (url: string) => void) => {
+        const reader = new FileReader();
+        reader.addEventListener('load', () => callback(reader.result as string));
+        reader.readAsDataURL(img);
+    };
+
     const handleChange: UploadProps['onChange'] = (info) => {
         if (info.file.status === 'uploading') {
-            return true;
+            setLoading(true);
+            return;
+        }
+        if (info.file.status === 'done') {
+            // Get this url from response in real world.
+            getBase64(info.file.originFileObj as FileType, (url) => {
+                setLoading(false);
+                setImageUrl(url);
+            });
         }
     };
+
     const [imageUrl, setImageUrl] = useState<string>();
     const uploadButton = (
         <button style={{ border: 0, background: 'none' }} type="button">
@@ -99,8 +121,10 @@ export const Academic = () => {
                     <AcademiCard
                         img={filled}
                         Tmodule={"SSHH"}
-                        docent={"Juan Perez"}
-                        onClick={() => console.log("Gestionar Suscripcion")}
+                        docent={"DOCENTE:Juan Perez"}
+                        w={"23%"}
+                        h={"40%"}
+                        onClick={() => navigate('/academic-module')}
                     />
 
 
@@ -204,7 +228,7 @@ export const Academic = () => {
                             className="avatar-uploader"
                             showUploadList={false}
                             style={{ width: "7vw", }}
-                            action="https://660d2bd96ddfa2943b33731c.mockapi.io/api/upload"
+
                             beforeUpload={beforeUpload}
                             onChange={handleChange}
                         >
@@ -220,5 +244,6 @@ export const Academic = () => {
             </Modal>
 
         </div>
+
     );
-}
+};

@@ -10,6 +10,7 @@ export const Inventory = () => {
     const { Search } = Input;
     const [isModalSuscripcion, setIsModalSuscripcion] = useState(false);
     const [isModalEditarSuscripcion, setIsModalEditarSuscripcion] = useState(false);
+    const [isModalEditarEmpresaSuscripcion, setIsModalEditarEmpresaSuscripcion] = useState(false);
     const onChange = (checked: boolean) => {
         console.log(`switch to ${false}`);
     };
@@ -117,7 +118,7 @@ export const Inventory = () => {
                                     <td className="p-4">23/01/2025</td>
                                     <td className="p-4">23/04/2025</td>
                                     <td className="p-4 flex justify-center items-center gap-2 cursor-pointer">
-                                        <img className="w-[1vw]" src={edit} alt="Edit"/>
+                                        <img className="w-[1vw]" src={edit} alt="Edit" onClick={() => setIsModalEditarEmpresaSuscripcion(true)}/>
                                         <img className="w-[1vw]" src={delet} alt="Delete" />
                                     </td>
                                 </tr>
@@ -338,8 +339,87 @@ export const Inventory = () => {
                         </div>
 
 
-                        <button className="bg-[#00AEEF] text-white font-semibold px-2 py-2 rounded-lg ml-2 hover:bg-[#BEEDFF] hover:border-2 hover:border-[#016FB4] hover:text-[#016FB4]" onClick={() => setIsModalSuscripcion(true)}>
+                        <button className="bg-[#00AEEF] text-white font-semibold px-2 py-2 rounded-lg ml-2 hover:bg-[#BEEDFF] hover:border-2 hover:border-[#016FB4] hover:text-[#016FB4]">
                             ACTUALIZAR SUSCRIPCION
+                        </button>
+
+                    </div>
+
+                </Modal>
+                <Modal title="EDITAR SUSCRIPCION EMPRESA" width={"40vw"} open={isModalEditarEmpresaSuscripcion} footer={null} onCancel={() => setIsModalEditarEmpresaSuscripcion(false)}>
+                    <div className='border-t-[0.2vw] justify-center border-solid border-gray-100 w-full flex flex-wrap pt-[1vw] gap-4'>
+                        <div>
+                            <h1 className='p-1 px-3'>NIT</h1>
+                            <input
+                                className="border-[0.1vw] h-[2vw] border-solid border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-gray-200 p-2 text-gray-800"
+                                {...registercontrolEmpresaData("nit", {})}
+                                onChange={(e) => handleInputChange(e, "nit")}
+                                value={watchEmpresaData("nit")}
+                                placeholder="Escribe el nombre"
+                                style={{ width: "10.3vw", }}
+                                disabled
+                            />
+                        </div>
+                        <div>
+                            <h1 className='p-1 px-3'>EMPRESA</h1>
+                            <input
+                                className="border-[0.1vw] h-[2vw] border-solid border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-gray-200 p-2 text-gray-800"
+                                {...registercontrolEmpresaData("name", {})}
+                                onChange={(e) => handleInputKeys(e, "name")}
+                                value={watchEmpresaData("name")}
+                                placeholder="Escribe el nombre"
+                                style={{ width: "10.3vw", }}
+                                disabled
+                            />
+                        </div>
+                        <div>
+                            <h1 className='p-1 px-3'>TIPO SUSCRIPCION</h1>
+                            <Select
+                                placeholder="Selecciona"
+                                style={{ width: "10.3vw" }}
+                                onChange={(value) => console.log(`Seleccionado: ${value}`)}
+                                options={[
+                                    { value: "1", label: "MENSUAL" },
+                                    { value: "2", label: "SEMESTRAL" },
+                                    { value: "3", label: "ANUAL" },
+                                ]}
+                            />
+                        </div>
+
+                        <div>
+                            <h1 className="pSelect p-1 px-3">ESTADO</h1>
+                            <Select
+                                placeholder="Selecciona"
+                                style={{ width: "10.3vw" }}
+                                onChange={(value) => console.log(`Seleccionado: ${value}`)}
+                                options={[
+                                    { value: "1", label: "ACTIVO" },
+                                    { value: "2", label: "INACTIVO" }
+                                ]}
+                            />
+                        </div>
+                        <div>
+                            <h1 className="pSelect p-1 px-3">FECHA DE CREACION</h1>
+                            <input
+                                className="border-[0.1vw] h-[2vw] border-solid border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-gray-200 p-2 text-gray-800"
+                                type="date"
+                                placeholder="Escribe el nombre"
+                                style={{ width: "10.3vw", }}
+                            />
+                        </div>
+                        <div>
+                            <h1 className="pSelect p-1 px-3">FECHA FIN</h1>
+                            <input
+                                className="border-[0.1vw] h-[2vw] border-solid border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-gray-200 p-2 text-gray-800"
+                                type="date"
+                                placeholder="Escribe el nombre"
+                                style={{ width: "10.3vw", }}
+                            />
+                        </div>
+                        
+
+                        <button className="bg-[#00AEEF] text-white font-semibold px-2 py-2 rounded-lg ml-2 hover:bg-[#BEEDFF] hover:border-2 hover:border-[#016FB4] hover:text-[#016FB4]">
+                            ACTUALIZAR
                         </button>
 
                     </div>
