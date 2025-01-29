@@ -1,5 +1,6 @@
 import { Dropdown, MenuProps } from 'antd';
 import op from '../../assets/img/option.svg';
+import {useNavigate } from 'react-router-dom';
 interface AcademiCardProps {
     img: string;
     Tmodule: string;
@@ -10,20 +11,21 @@ interface AcademiCardProps {
 }
 
 export const AcademiCard: React.FC<AcademiCardProps> = ({ img, Tmodule, docent, h, w, onClick }) => {
+    const navigate = useNavigate();
     const items: MenuProps['items'] = [
         {
             key: '1',
             label: (
-                <a target="_blank" rel="noopener noreferrer" href="https://www.antgroup.com">
-                    Editar contenido
+                <a  target="_blank" rel="noopener noreferrer" onClick={() => navigate('/Academic?showModal=true')}>
+                    EDITAR PROGRAMA
                 </a>
             ),
         },
         {
             key: '2',
             label: (
-                <a target="_blank" rel="noopener noreferrer" href="https://www.aliyun.com">
-                    Editar Modulo
+                <a target="_blank" rel="noopener noreferrer" onClick={() => navigate('/Academic_module?showModal=true')}>
+                    EDITAR MODULO
                 </a>
             ),
         },
@@ -31,7 +33,7 @@ export const AcademiCard: React.FC<AcademiCardProps> = ({ img, Tmodule, docent, 
             key: '3',
             label: (
                 <a target="_blank" rel="noopener noreferrer" href="https://www.luohanacademy.com">
-                    Eliminar
+                    ELIMINAR PROGRAMA
                 </a>
             ),
         },
@@ -46,12 +48,5 @@ export const AcademiCard: React.FC<AcademiCardProps> = ({ img, Tmodule, docent, 
             <h5 className="text-[#016FB4] text-[0.6vw]">{docent}</h5>
             <button className="bg-[#00AEEF] text-white font-semibold px-2 py-2 rounded-lg ml-2 hover:bg-[#BEEDFF] hover:border-2 hover:border-[#016FB4] hover:text-[#016FB4]" onClick={onClick}>Ver</button>
         </div>
-
-
-
-
-
-
-
     );
 };

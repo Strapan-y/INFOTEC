@@ -346,7 +346,7 @@ export const Inventory = () => {
                     </div>
 
                 </Modal>
-                <Modal title="EDITAR SUSCRIPCION EMPRESA" width={"40vw"} open={isModalEditarEmpresaSuscripcion} footer={null} onCancel={() => setIsModalEditarEmpresaSuscripcion(false)}>
+                <Modal title="EDITAR SUSCRIPCION EMPRESA" width={"35vw"} open={isModalEditarEmpresaSuscripcion} footer={null} onCancel={() => setIsModalEditarEmpresaSuscripcion(false)}>
                     <div className='border-t-[0.2vw] justify-center border-solid border-gray-100 w-full flex flex-wrap pt-[1vw] gap-4'>
                         <div>
                             <h1 className='p-1 px-3'>NIT</h1>

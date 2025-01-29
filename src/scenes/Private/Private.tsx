@@ -5,6 +5,7 @@ import { Users } from "./Users/Users";
 import { Academic } from "./Academic/Academic";
 import { Academic_module } from "./Academic/Academic-Modulo";
 import { Inventory } from "./Inventory/Inventory";
+import { Content_Module } from "./Academic/Content-Module";
 
 const Private = () => {
   return (
@@ -13,8 +14,9 @@ const Private = () => {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/users" element={<Users />} />
-          <Route path="/academic" element={<Academic />} />
-          <Route path="/academic-module" element={<Academic_module />} />
+          <Route path="/Academic" element={<Academic />} />
+          <Route path="/Academic_module" element={<Academic_module />} />
+          <Route path="/Content_Module" element={<Content_Module />} />
           <Route path="/inventory" element={<Inventory />} />
 
           <Route path="*" element={<Navigate to="/" />} />
