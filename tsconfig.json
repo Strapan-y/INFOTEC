@@ -1,5 +1,7 @@
 {
     "compilerOptions": {
+      "typeRoots": ["node_modules/@types", "src/types"],
+      "types": ["quill"],
       "target": "ES6",
       "module": "ESNext",
       "lib": ["DOM", "DOM.Iterable", "ESNext"],

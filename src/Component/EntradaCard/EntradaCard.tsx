@@ -17,24 +17,16 @@ export const EntradaCard: React.FC<AcademiCardProps> = ({ img, Tmodule, fecha, e
         {
             key: '1',
             label: (
-                <a target="_blank" rel="noopener noreferrer" onClick={() => navigate('/Academic?showModal=true')}>
-                    EDITAR PROGRAMA
+                <a target="_blank" rel="noopener noreferrer" onClick={() => navigate('/Content_Module?showModal=true')}>
+                    EDITAR ENTRADA
                 </a>
             ),
         },
         {
             key: '2',
             label: (
-                <a target="_blank" rel="noopener noreferrer" onClick={() => navigate('/Academic_module?showModal=true')}>
-                    EDITAR MODULO
-                </a>
-            ),
-        },
-        {
-            key: '3',
-            label: (
-                <a target="_blank" rel="noopener noreferrer" href="https://www.luohanacademy.com">
-                    ELIMINAR PROGRAMA
+                <a target="_blank" rel="noopener noreferrer">
+                    ELIMINAR ENTRADA
                 </a>
             ),
         },

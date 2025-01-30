@@ -4,7 +4,7 @@ import botonizquierda from "../../../assets/img/buttonleft.svg";
 import imagenejemplo from "../../../assets/img/image.svg";
 import { AcademiCard } from "../../../Component/AcademiCard/AcademiCard";
 import { useLocation, useNavigate } from "react-router-dom";
-import { GetProp, Input, Modal, Select, Switch, Upload, UploadProps, message } from "antd";
+import { GetProp, Input, Modal, Select, Switch, Upload, UploadFile, UploadProps, message } from "antd";
 import { useForm } from "react-hook-form";
 import { LoadingOutlined, PlusOutlined } from "@ant-design/icons";
 
@@ -13,12 +13,23 @@ type FileType = Parameters<GetProp<UploadProps, 'beforeUpload'>>[0];
 
 
 export const Academic_module = () => {
+    const navigate = useNavigate();
     const location = useLocation();
+
+    // Estados para los modals
     const [isModalCrearModulo, setIsModalCrearModulo] = useState(false);
     const [isModalEditarModulo, setIsModalEditarModulo] = useState(false);
     const [inputValue, setInputValue] = useState("");
     const [loading, setLoading] = useState(false);
-    const navigate = useNavigate()
+
+    // Estados para las imágenes
+    const [crearImageUrl, setCrearImageUrl] = useState<string>();
+    const [crearFileList, setCrearFileList] = useState<UploadFile[]>([]);
+    const [editarImageUrl, setEditarImageUrl] = useState<string>();
+    const [editarFileList, setEditarFileList] = useState<UploadFile[]>([]);
+
+    const { Dragger } = Upload;
+
 
 
     useEffect(() => {
@@ -32,80 +43,78 @@ export const Academic_module = () => {
         console.log(`switch to ${false}`);
     };
 
+    const beforeUpload = (file: FileType) => {
+        const isImage = file.type.startsWith('image/');
+        if (!isImage) {
+            message.error('Solo puedes subir archivos de imagen!');
+            return Upload.LIST_IGNORE;
+        }
+        const isLt2M = file.size / 1024 / 1024 < 2;
+        if (!isLt2M) {
+            message.error('La imagen debe ser menor a 2MB!');
+            return Upload.LIST_IGNORE;
+        }
+        return false;
+    };
+
+    // Handlers para Crear Modulos
+    const handleChangeCrear: UploadProps['onChange'] = ({ fileList: newFileList }) => {
+        const latestFile = newFileList.slice(-1);
+        setCrearFileList(latestFile);
+
+        if (latestFile.length > 0) {
+            const file = latestFile[0].originFileObj as File;
+            const reader = new FileReader();
+            reader.onload = (e) => setCrearImageUrl(e.target?.result as string);
+            reader.readAsDataURL(file);
+        } else {
+            setCrearImageUrl(undefined);
+        }
+    };
+
+    // Handlers para Editar Modulos
+    const handleChangeEditar: UploadProps['onChange'] = ({ fileList: newFileList }) => {
+        const latestFile = newFileList.slice(-1);
+        setEditarFileList(latestFile);
+
+        if (latestFile.length > 0) {
+            const file = latestFile[0].originFileObj as File;
+            const reader = new FileReader();
+            reader.onload = (e) => setEditarImageUrl(e.target?.result as string);
+            reader.readAsDataURL(file);
+        } else {
+            setEditarImageUrl(undefined);
+        }
+    };
+
+    const uploadButton = (
+        <div>
+            <PlusOutlined />
+            <div style={{ marginTop: 8 }}>Subir imagen</div>
+        </div>
+    );
+
+
+    // Excepciones del teclado
     const handleInputChange = (e: { target: { value: string; }; }, name: any) => {
-        const value = e.target.value.replace(/[^0-9]/g, ""); // Permitir solo números
+        const value = e.target.value.replace(/[^0-9]/g, ""); 
         setValueEmpresaData(name, value);
     };
 
     const handleInputKeys = (e: { target: { value: string } }, name: any) => {
-        const value = e.target.value.replace(/[^a-zA-ZáéíóúÁÉÍÓÚüÜñÑ\s]/g, ""); // Permitir solo letras, espacios y caracteres acentuados
+        const value = e.target.value.replace(/[^a-zA-ZáéíóúÁÉÍÓÚüÜñÑ\s]/g, ""); 
         setValueEmpresaData(name, value);
     };
-    const beforeUpload = (file: FileType) => {
-        const isJpgOrPng = file.type === 'image/jpeg' || file.type === 'image/png';
-        if (!isJpgOrPng) {
-            message.error('You can only upload JPG/PNG file!');
-        }
-        const isLt2M = file.size / 1024 / 1024 < 2;
-        if (!isLt2M) {
-            message.error('Image must smaller than 2MB!');
-        }
-        return isJpgOrPng && isLt2M;
-    };
 
-    const getBase64 = (img: FileType, callback: (url: string) => void) => {
-        const reader = new FileReader();
-        reader.addEventListener('load', () => callback(reader.result as string));
-        reader.readAsDataURL(img);
-    };
-
-    const handleChange: UploadProps['onChange'] = (info) => {
-        if (info.file.status === 'uploading') {
-            setLoading(true);
-            return;
-        }
-        if (info.file.status === 'done') {
-            // Get this url from response in real world.
-            getBase64(info.file.originFileObj as FileType, (url) => {
-                setLoading(false);
-                setImageUrl(url);
-            });
-        }
-    };
-
-    const [imageUrl, setImageUrl] = useState<string>();
-    const uploadButton = (
-        <button style={{ border: 0, background: 'none' }} type="button">
-            {loading ? <LoadingOutlined /> : <PlusOutlined />}
-            <div style={{ marginTop: 8 }}>Upload</div>
-        </button>
-    );
 
     const {
         register: registercontrolEmpresaData,
         setValue: setValueEmpresaData,
         watch: watchEmpresaData,
-        control: controlEmpresaData,
-        formState: { errors: errorsEmpresaData },
     } = useForm({
         defaultValues: {
-            documentType: '',
             nit: '',
             name: '',
-            suscription: '',
-            telefono: '',
-            documentText: '',
-            nationality: '',
-            idNumber: '',
-
-            historyNumber: '',
-            department: '',
-            municipality: '',
-            subdistrict: '',
-            neighborhood: '',
-            cellphone: '',
-            email: '',
-            patientProfession: ''
         }
     });
 
@@ -113,7 +122,7 @@ export const Academic_module = () => {
     return (
         <div className="users flex flex-col h-full w-full p-[1vw] gap-[1vw]" >
             <div className="border-b-2 border-solid border-[#016FB4] h-[2%] w-full">
-                <h1 className="text-[#016FB4] font-Caladea text-[0.6vw]">MODULO ACADEMICO</h1>
+                <h1 className="text-[#016FB4] font-Caladea text-[0.6vw]">GESTIONAR MODULOS</h1>
             </div>
 
             <div className="bg-[white] flex flex-col items-center rounded-lg shadow-lg h-full w-full pt-[2vw] overflow-auto">
@@ -229,13 +238,14 @@ export const Academic_module = () => {
                             name="avatar"
                             listType="picture-circle"
                             className="avatar-uploader"
-                            showUploadList={false}
-
-
+                            fileList={crearFileList}
                             beforeUpload={beforeUpload}
-                            onChange={handleChange}
+                            onChange={handleChangeCrear}
+                            maxCount={1}
+
                         >
-                            {imageUrl ? <img src={imageUrl} alt="avatar" style={{ width: '0.2vw' }} /> : uploadButton}
+                            {/* Solo muestra el botón si no hay archivos subidos */}
+                            {crearFileList.length === 0 && uploadButton}
                         </Upload>
 
                     </div>
@@ -307,13 +317,14 @@ export const Academic_module = () => {
                             name="avatar"
                             listType="picture-circle"
                             className="avatar-uploader"
-                            showUploadList={false}
-
-
+                            fileList={crearFileList}
                             beforeUpload={beforeUpload}
-                            onChange={handleChange}
+                            onChange={handleChangeCrear}
+                            maxCount={1}
+
                         >
-                            {imageUrl ? <img src={imageUrl} alt="avatar" style={{ width: '0.2vw' }} /> : uploadButton}
+                            {/* Solo muestra el botón si no hay archivos subidos */}
+                            {crearFileList.length === 0 && uploadButton}
                         </Upload>
 
                     </div>
