@@ -43,9 +43,9 @@ export const EntradaCard: React.FC<AcademiCardProps> = ({ img, Tmodule, fecha, e
             </div>
 
             <div className='flex'>
-                <button className="bg-[#00AEEF] text-white text-[1vw] font-semibold px-2 py-2 rounded-lg ml-2 hover:bg-[#BEEDFF] hover:border-2 hover:border-[#016FB4] hover:text-[#016FB4]" onClick={onClick}>Ver</button>
+                <button className="bg-[#00AEEF] text-white text-[1vw] font-semibold px-2 py-1 rounded-lg ml-2 hover:bg-[#BEEDFF] hover:border-2 hover:border-[#016FB4] hover:text-[#016FB4]" onClick={onClick}>Ver</button>
                 <Dropdown menu={{ items }} placement="bottomRight" arrow>
-                    <img className="w-[1vw] h-[1vw] cursor-pointer" src={op} />
+                    <img className="w-[1.5vw] h-[1.5vw] cursor-pointer" src={op} />
                 </Dropdown>
             </div>
 

@@ -6,6 +6,11 @@ import { useEffect, useState } from "react";
 import { DeleteOutlined, LoadingOutlined, PlusOutlined } from "@ant-design/icons";
 import { AcademiCard } from "../../../Component/AcademiCard/AcademiCard";
 import { useLocation, useNavigate } from "react-router-dom";
+import ReactQuill, { Quill } from "react-quill";
+
+import 'react-quill/dist/quill.snow.css';
+
+
 
 const { Search } = Input;
 type FileType = Parameters<GetProp<UploadProps, 'beforeUpload'>>[0];
@@ -24,6 +29,7 @@ export const Academic = () => {
     const [crearFileList, setCrearFileList] = useState<UploadFile[]>([]);
     const [editarImageUrl, setEditarImageUrl] = useState<string>();
     const [editarFileList, setEditarFileList] = useState<UploadFile[]>([]);
+    const [content, setContent] = useState<string>('');
 
     const { Dragger } = Upload;
 
@@ -83,6 +89,48 @@ export const Academic = () => {
             <div style={{ marginTop: 8 }}>Subir imagen</div>
         </div>
     );
+
+    const handleContentChange = (value: string) => {
+        setContent(value);
+    };
+
+
+    const modules = {
+        toolbar: [
+            [{ 'header': [1, 2, 3, 4, 5, 6, false] }], // Tamaños de texto
+            [{ 'font': [] }], // Tipografías 
+            ['bold', 'italic', 'underline', 'strike'], // Asegurar que están en su propio array
+            [{ 'list': 'ordered' }, { 'list': 'bullet' }],
+            [{ 'color': [] }, { 'background': [] }], // Color de texto y fondo
+            [{ 'align': ['', 'center', 'right', 'justify'] }], // Alineación
+            ['blockquote', 'code-block'],
+            ['link', 'image', 'video'],
+        ],
+        imageResize: {
+            parchment: Quill.import('parchment'),
+            modules: ['Resize', 'DisplaySize', 'Toolbar']
+        }
+    };
+
+    const formats = [
+        'header',
+        'font',
+        'size',
+        'bold',
+        'italic',
+        'underline',
+        'strike',
+        'blockquote',
+        'code-block',
+        'list',
+        'bullet',
+        'link',
+        'image',
+        'video',
+        'color',
+        'background',
+        'align'
+    ];
 
 
     // Excepciones del teclado
@@ -244,10 +292,28 @@ export const Academic = () => {
                             </Upload>
                         </div>
                     </div>
+
+                    <div className="w-[25vw] h-[13vw] rounded-xl p-1  relative ">
+                        <h1 className="pSelect">CONTENIDO</h1>
+                        <div className="h-[200px]">
+                            <ReactQuill
+                                value={content}
+                                onChange={handleContentChange}
+                                modules={modules}
+                                formats={formats}
+                                className="bg-white rounded-lg h-full border border-gray-300"
+                                theme="snow"
+                            />
+                        </div>
+
+                    </div>
                 </div>
-                <button className="bg-[#00AEEF] text-white font-semibold px-2 py-2 rounded-lg ml-2 hover:bg-[#BEEDFF] hover:border-2 hover:border-[#016FB4] hover:text-[#016FB4]" onClick={() => setIsModalPrograma(true)}>
-                    CREAR PROGRAMA
-                </button>
+                <div className="w-full flex justify-center mt-4">
+                    <button className="bg-[#00AEEF] text-white font-semibold px-3 py-2 rounded-lg ml-2 hover:bg-[#BEEDFF] hover:border-2 hover:border-[#016FB4] hover:text-[#016FB4]" onClick={() => setIsModalPrograma(true)}>
+                        CREAR PROGRAMA
+                    </button>
+                </div>
+
             </Modal>
 
             <Modal title="EDITAR PROGRAMA" width={"40vw"} open={isModalEditarPrograma} footer={null} onCancel={() => setIsModalEditarPrograma(false)}>

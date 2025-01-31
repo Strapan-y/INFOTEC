@@ -7,6 +7,7 @@ import { Academic_module } from "./Academic/CrearModulos";
 import { Inventory } from "./Inventory/Inventory";
 import { Content_Module } from "./Academic/CrearEntradasModule";
 import { Content_Entrada } from "./Academic/VisualizarEntradaModulos";
+import { Dashboard } from "./Dashboard/Dashboard";
 
 const Private = () => {
   return (
@@ -19,6 +20,7 @@ const Private = () => {
           <Route path="/Academic_module" element={<Academic_module />} />
           <Route path="/Content_Module" element={<Content_Module />} />
           <Route path="/Content_Entrada" element={<Content_Entrada />} />
+          <Route path="/dashboard" element={<Dashboard />} />
           <Route path="/inventory" element={<Inventory />} />
 
           <Route path="*" element={<Navigate to="/" />} />

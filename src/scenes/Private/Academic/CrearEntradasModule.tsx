@@ -21,15 +21,7 @@ export const Content_Module = () => {
     const location = useLocation();
     const [istIsModalCrearEntrada, setIsModalCrearEntrada] = useState(false);
     const [isModalEditarEntrada, setIsModalEditarEntrada] = useState(false);
-    const [inputValue, setInputValue] = useState("");
     const [content, setContent] = useState<string>('');
-
-
-    // Estados para las imágenes
-    const [crearImageUrl, setCrearImageUrl] = useState<string>();
-    const [crearFileList, setCrearFileList] = useState<UploadFile[]>([]);
-    const [editarImageUrl, setEditarImageUrl] = useState<string>();
-    const [editarFileList, setEditarFileList] = useState<UploadFile[]>([]);
 
     const { Dragger } = Upload;
 
@@ -105,27 +97,12 @@ export const Content_Module = () => {
 
 
     const {
-        register: registercontrolEmpresaData,
         setValue: setValueEmpresaData,
-        formState: { errors: errorsEmpresaData },
     } = useForm({
         defaultValues: {
             documentType: '',
             nit: '',
             name: '',
-            suscription: '',
-            telefono: '',
-            documentText: '',
-            nationality: '',
-            idNumber: '',
-            historyNumber: '',
-            department: '',
-            municipality: '',
-            subdistrict: '',
-            neighborhood: '',
-            cellphone: '',
-            email: '',
-            patientProfession: ''
         }
     });
     return (
@@ -247,6 +224,74 @@ export const Content_Module = () => {
                     <button
                         className="bg-[#00AEEF] text-white font-semibold px-4 py-2 mt-4 rounded-lg hover:bg-[#BEEDFF] hover:border-2 hover:border-[#016FB4] hover:text-[#016FB4]" onClick={handleSave}>
                         GUARDAR ENTRADA
+                    </button>
+
+                </div>
+            </Modal>
+
+            <Modal
+                title="EDITAR ENTRADA"
+                width={"50vw"}
+                open={isModalEditarEntrada}
+                footer={null}
+                onCancel={() => setIsModalEditarEntrada(false)}>
+
+                <div className="flex flex-wrap border-t-[0.2vw] h-[28vw] justify-center border-solid border-gray-100 w-full flex pt-[1vw] gap-4 ">
+                    <div>
+                        <h1 className="p-1 px-3">CODIGO</h1>
+                        <input
+                            className="border-[0.1vw] h-[2vw] border-solid border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-gray-200 p-2 text-gray-800"
+                            placeholder="Escribe el nombre"
+                            style={{ width: "10.3vw" }}
+                        />
+                    </div>
+                    <div>
+                        <h1 className="p-1 px-3">TITULO</h1>
+                        <input
+                            className="border-[0.1vw] h-[2vw] border-solid border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-gray-200 p-2 text-gray-800"
+                            placeholder="Escribe el nombre"
+                            style={{ width: "10.3vw" }}
+                        />
+                    </div>
+
+                    <div>
+                        <h1 className="pSelect p-1 px-3">ESTADO</h1>
+                        <input
+                            className="border-[0.1vw] h-[2vw] border-solid border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-gray-200 p-2 text-gray-800"
+                            type="email"
+                            placeholder="Escribe el nombre"
+                            style={{ width: "10.3vw" }}
+                        />
+                    </div>
+
+                    <div>
+                        <h1 className="p-1 px-3">FECHA DE PUBLICACION</h1>
+                        <Switch defaultChecked />
+                        <input
+                            className="border-[0.1vw] h-[2vw] border-solid border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-gray-200 text-gray-800"
+                            type="date"
+                            placeholder="Escribe el nombre"
+                            style={{ width: "8.5vw" }}
+                        />
+                    </div>
+
+                    <div className="w-full rounded-xl p-1  relative gap-[2vw]">
+                        <h1 className="text-lg font-bold mb-2">CONTENIDO</h1>
+                        <div className="h-[400px]">
+                            <ReactQuill
+                                value={content}
+                                onChange={handleContentChange}
+                                modules={modules}
+                                formats={formats}
+                                className="bg-white rounded-lg h-full border border-gray-300"
+                                theme="snow"
+                            />
+                        </div>
+
+                    </div>
+                    <button
+                        className="bg-[#00AEEF] text-white font-semibold px-4 py-2 mt-4 rounded-lg hover:bg-[#BEEDFF] hover:border-2 hover:border-[#016FB4] hover:text-[#016FB4]" onClick={handleSave}>
+                        ACTUALIZAR ENTRADA
                     </button>
 
                 </div>

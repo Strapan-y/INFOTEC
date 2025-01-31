@@ -7,6 +7,7 @@ import { useLocation, useNavigate } from "react-router-dom";
 import { GetProp, Input, Modal, Select, Switch, Upload, UploadFile, UploadProps, message } from "antd";
 import { useForm } from "react-hook-form";
 import { LoadingOutlined, PlusOutlined } from "@ant-design/icons";
+import ReactQuill, { Quill } from "react-quill";
 
 const { Search } = Input;
 type FileType = Parameters<GetProp<UploadProps, 'beforeUpload'>>[0];
@@ -27,7 +28,7 @@ export const Academic_module = () => {
     const [crearFileList, setCrearFileList] = useState<UploadFile[]>([]);
     const [editarImageUrl, setEditarImageUrl] = useState<string>();
     const [editarFileList, setEditarFileList] = useState<UploadFile[]>([]);
-
+    const [content, setContent] = useState<string>('');
     const { Dragger } = Upload;
 
 
@@ -94,15 +95,58 @@ export const Academic_module = () => {
         </div>
     );
 
+    const handleContentChange = (value: string) => {
+        setContent(value);
+    };
+
+
+    const modules = {
+        toolbar: [
+            [{ 'header': [1, 2, 3, 4, 5, 6, false] }], // Tamaños de texto
+            [{ 'font': [] }], // Tipografías
+            [{ 'size': ['small', false, 'large', 'huge'] }], // Tamaños alternativos
+            ['bold', 'italic', 'underline', 'strike'], // Formato básico
+            [{ 'color': [] }, { 'background': [] }], // Color de texto y fondo
+            [{ 'align': ['', 'center', 'right', 'justify'] }], // Alineación
+            ['blockquote', 'code-block'],
+            [{ 'list': 'ordered' }, { 'list': 'bullet' }],
+            ['link', 'image', 'video'],
+            ['clean']
+        ],
+        imageResize: {
+            parchment: Quill.import('parchment'),
+            modules: ['Resize', 'DisplaySize', 'Toolbar']
+        }
+    };
+
+    const formats = [
+        'header',
+        'font',
+        'size',
+        'bold',
+        'italic',
+        'underline',
+        'strike',
+        'blockquote',
+        'code-block',
+        'list',
+        'bullet',
+        'link',
+        'image',
+        'video',
+        'color',
+        'background',
+        'align'
+    ];
 
     // Excepciones del teclado
     const handleInputChange = (e: { target: { value: string; }; }, name: any) => {
-        const value = e.target.value.replace(/[^0-9]/g, ""); 
+        const value = e.target.value.replace(/[^0-9]/g, "");
         setValueEmpresaData(name, value);
     };
 
     const handleInputKeys = (e: { target: { value: string } }, name: any) => {
-        const value = e.target.value.replace(/[^a-zA-ZáéíóúÁÉÍÓÚüÜñÑ\s]/g, ""); 
+        const value = e.target.value.replace(/[^a-zA-ZáéíóúÁÉÍÓÚüÜñÑ\s]/g, "");
         setValueEmpresaData(name, value);
     };
 
@@ -250,6 +294,21 @@ export const Academic_module = () => {
 
                     </div>
 
+                    <div className="w-[25vw] h-[15vw] rounded-xl p-1  relative ">
+                        <h1 className="pSelect">CONTENIDO</h1>
+                        <div className="h-[200px]">
+                            <ReactQuill
+                                value={content}
+                                onChange={handleContentChange}
+                                modules={modules}
+                                formats={formats}
+                                className="bg-white rounded-lg h-full border border-gray-300"
+                                theme="snow"
+                            />
+                        </div>
+
+                    </div>
+
                     <button className="bg-[#00AEEF] text-white font-semibold px-2 py-2 rounded-lg ml-2 hover:bg-[#BEEDFF] hover:border-2 hover:border-[#016FB4] hover:text-[#016FB4]" onClick={() => setIsModalCrearModulo(true)}>
                         CREAR MODULO
                     </button>
@@ -326,6 +385,21 @@ export const Academic_module = () => {
                             {/* Solo muestra el botón si no hay archivos subidos */}
                             {crearFileList.length === 0 && uploadButton}
                         </Upload>
+
+                    </div>
+
+                    <div className="w-[25vw] h-[15vw] rounded-xl p-1  relative ">
+                        <h1 className="pSelect">CONTENIDO</h1>
+                        <div className="h-[200px]">
+                            <ReactQuill
+                                value={content}
+                                onChange={handleContentChange}
+                                modules={modules}
+                                formats={formats}
+                                className="bg-white rounded-lg h-full border border-gray-300"
+                                theme="snow"
+                            />
+                        </div>
 
                     </div>
 
