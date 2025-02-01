@@ -40,7 +40,7 @@ export const AcademiCard: React.FC<AcademiCardProps> = ({ img, Tmodule, docent, 
             {
                 key: '1',
                 label: (
-                    <a target="_blank" rel="noopener noreferrer" onClick={() => navigate('/Academic_module?showModal=true')}>
+                    <a target="_blank" rel="noopener noreferrer" onClick={() => navigate('/Content_Module')}>
                         EDITAR MODULO
                     </a>
                 ),

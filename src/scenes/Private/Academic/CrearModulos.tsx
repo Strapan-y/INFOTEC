@@ -169,7 +169,7 @@ export const Academic_module = () => {
                 <h1 className="text-[#016FB4] font-Caladea text-[0.6vw]">GESTIONAR MODULOS</h1>
             </div>
 
-            <div className="bg-[white] flex flex-col items-center rounded-lg shadow-lg h-full w-full pt-[2vw] overflow-auto">
+            <div className="bg-[white] flex flex-col items-center rounded-lg shadow-lg h-full w-full pt-[1.5vw] overflow-auto">
                 <div className="flex gap-[2vw] h-[15vw] w-[90%] p-[1vw] border-b-2 border-solid border-gray-500/10">
                     <img className="h-[3vw] w-[3vw] relative right-[3vw] cursor-pointer" src={botonizquierda} onClick={() => navigate('/Academic')} />
                     <img className="shadow-lg rounded-lg object-cover h-[12vw] w-[12vw]" src={imagenejemplo} />
@@ -179,6 +179,9 @@ export const Academic_module = () => {
                             Lorem Ipsum ha sido el texto de relleno estándar de las industrias desde el año 1500, cuando un impresor (N. del T. persona que se dedica a la imprenta) desconocido usó una galería de textos y los mezcló de tal manera que logró hacer un libro de textos especimen.
                             No sólo sobrevivió 500 años, sino que tambien ingresó como texto de relleno en documentos electrónicos, quedando esencialmente igual al original.
                         </p>
+                        <div>
+
+                        </div>
                     </div>
                 </div>
                 <div className="flex h-full w-full p-[2vw] flex-wrap">
@@ -194,7 +197,7 @@ export const Academic_module = () => {
                             docent={"FUNDAMENTOS XXX"}
                             w={"15vw"}
                             h={"10vw"}
-                            onClick={() => navigate('/Content_Module')}
+                            onClick={() => navigate('/Dashboard')}
                         />
 
                         <AcademiCard
@@ -314,100 +317,7 @@ export const Academic_module = () => {
                     </button>
                 </div>
             </Modal>
-            <Modal title="EDITAR MODULO" width={"26vw"} open={isModalEditarModulo} footer={null} onCancel={() => setIsModalEditarModulo(false)}>
-                <div className='border-t-[0.2vw] justify-center border-solid border-gray-100 w-full flex flex-wrap pt-[1vw] gap-4'>
-                    <div>
-                        <h1 className='p-1 px-3'>CODIGO</h1>
-                        <input
-                            className="border-[0.1vw] h-[2vw] border-solid border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-gray-200 p-2 text-gray-800"
-                            {...registercontrolEmpresaData("nit", {})}
-                            onChange={(e) => handleInputChange(e, "nit")}
-                            value={watchEmpresaData("nit")}
-                            placeholder="Escribe el nombre"
-                            style={{ width: "10.3vw", }}
-                        />
-                    </div>
-                    <div>
-                        <h1 className='p-1 px-3'>NOMBRE</h1>
-                        <input
-                            className="border-[0.1vw] h-[2vw] border-solid border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-gray-200 p-2 text-gray-800"
-                            {...registercontrolEmpresaData("name", {})}
-                            onChange={(e) => handleInputKeys(e, "name")}
-                            value={watchEmpresaData("name")}
-                            placeholder="Escribe el nombre"
-                            style={{ width: "10.3vw", }}
-                        />
-                    </div>
-
-                    <div>
-                        <h1 className="pSelect p-1 px-3">ESTADO</h1>
-                        <input
-                            className="border-[0.1vw] h-[2vw] border-solid border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-gray-200 p-2 text-gray-800"
-                            type="email"
-                            placeholder="Escribe el nombre"
-                            style={{ width: "10.3vw", }}
-                        />
-                    </div>
-
-                    <div>
-                        <h1 className='p-1 px-3'>PRECIO</h1>
-                        <Switch defaultChecked onChange={onChange} />
-                        <input
-                            className="border-[0.1vw] h-[2vw] border-solid border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-gray-200 p-2 text-gray-800"
-                            type="text"
-                            placeholder="Escribe el nombre"
-                            style={{ width: "8.5vw", }}
-                        />
-                    </div>
-
-                    <div>
-                        <h1 className='p-1 px-3'>FECHA DE PUBLICACION</h1>
-                        <Switch defaultChecked onChange={onChange} />
-                        <input
-                            className="border-[0.1vw] h-[2vw] border-solid border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-gray-200 text-gray-800"
-                            type="date"
-                            placeholder="Escribe el nombre"
-                            style={{ width: "8.5vw", }}
-                        />
-                    </div>
-                    <div className="flex flex-col items-center justify-center w-[10.5vw]">
-                        <h1 className="pSelect p-1 px-3">ICONO DEL MODULO</h1>
-                        <Upload
-                            name="avatar"
-                            listType="picture-circle"
-                            className="avatar-uploader"
-                            fileList={crearFileList}
-                            beforeUpload={beforeUpload}
-                            onChange={handleChangeCrear}
-                            maxCount={1}
-
-                        >
-                            {/* Solo muestra el botón si no hay archivos subidos */}
-                            {crearFileList.length === 0 && uploadButton}
-                        </Upload>
-
-                    </div>
-
-                    <div className="w-[25vw] h-[15vw] rounded-xl p-1  relative ">
-                        <h1 className="pSelect">CONTENIDO</h1>
-                        <div className="h-[200px]">
-                            <ReactQuill
-                                value={content}
-                                onChange={handleContentChange}
-                                modules={modules}
-                                formats={formats}
-                                className="bg-white rounded-lg h-full border border-gray-300"
-                                theme="snow"
-                            />
-                        </div>
-
-                    </div>
-
-                    <button className="bg-[#00AEEF] text-white font-semibold px-2 py-2 rounded-lg ml-2 hover:bg-[#BEEDFF] hover:border-2 hover:border-[#016FB4] hover:text-[#016FB4]" onClick={() => setIsModalEditarModulo(true)}>
-                        ACTUALIZAR MODULO
-                    </button>
-                </div>
-            </Modal>
+            
         </div>
     );
 };
