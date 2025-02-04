@@ -26,43 +26,44 @@ interface MyComponentProps {
 
 export const ModulesContents: React.FC = () => {
     const navigate = useNavigate()
-    const [curretmView, setCurretmView] = useState('Dashboard');
+    type ViewType = "dashboard" | "onlineExam" | "tasks" | "studyMaterial" | "grades" | "liveSession" | "attendance";
+    const [currentView, setCurrentView] = useState<ViewType>("dashboard");
 
 
 
     const ModuleLayout = (props: MyComponentProps) => {
         return (
-            <Layout className="bg-[white] flex flex-col items-center rounded-lg shadow-lg h-full w-full pt-[1.5vw] px-[1.5vw] overflow-auto">
-                <Header className="bg-[white] flex items-center justify-between gap-[2vw] h-[5vw] w-full p-[1vw] border-b-2 border-solid border-gray-500/10 ">
+            <Layout className="bg-[white] flex flex-col items-center rounded-lg shadow-lg h-full w-full overflow-auto">
+                <Header className="bg-[white] flex items-center justify-between gap-[2vw] h-[4vw] w-full p-[1vw] border-b-2 border-solid border-gray-500/10">
 
-                    <img className="h-[3vw] w-[3vw] right-[3vw] cursor-pointer" src={botonizquierda} onClick={() => navigate('/Academic_Content')} />
-                    <div className="flex flex-col items-center">
-                        <img className="h-[3vw] w-[3vw] cursor-pointer" src={speedometer} onClick={() => setCurretmView('dashboard')} />
+                    <img className="h-[3vw] w-[3vw] items-center cursor-pointer" src={botonizquierda} onClick={() => navigate('/Academic_Content')} />
+                    <div className="flex flex-col items-center h-[4vw] p-[0.2vw]">
+                        <img className="h-[3vw] w-[3vw] cursor-pointer" src={speedometer} onClick={() => setCurrentView('dashboard')} />
                         <h1 className="text-[0.8vw] relative bottom-[1vw]">TABLERO</h1>
                     </div>
-                    <div className="flex flex-col items-center">
-                        <img className="h-[2.5vw] w-[3vw] cursor-pointer" src={vector} onClick={() => setCurretmView('onlineExam')} />
+                    <div className="flex flex-col items-center h-[4vw] p-[0.2vw]">
+                        <img className="h-[2.5vw] w-[3vw] cursor-pointer" src={vector} onClick={() => setCurrentView('onlineExam')} />
                         <h1 className="text-[0.8vw] relative bottom-[0.7vw]">EXAMEN EN LINEA</h1>
                     </div>
-                    <div className="flex flex-col items-center">
-                        <img className="h-[3vw] w-[3vw] cursor-pointer" src={ruler} onClick={() => setCurretmView('tasks')} />
-                        <h1 className="text-[0.8vw]">TAREAS</h1>
+                    <div className="flex flex-col items-center h-[4vw] p-[0.2vw]">
+                        <img className="h-[2.5vw] w-[3vw] cursor-pointer" src={ruler} onClick={() => setCurrentView('tasks')} />
+                        <h1 className="text-[0.8vw] relative bottom-[0.7vw]">TAREAS</h1>
                     </div>
-                    <div className="flex flex-col items-center">
-                        <img className="h-[3vw] w-[3vw] cursor-pointer" src={book} onClick={() => setCurretmView('studyMaterial')} />
-                        <h1 className="text-[0.8vw]">MATERIAL DE ESTUDIO</h1>
+                    <div className="flex flex-col items-center h-[4vw] p-[0.2vw]">
+                        <img className="h-[2.4vw] w-[3vw] cursor-pointer" src={book} onClick={() => setCurrentView('studyMaterial')} />
+                        <h1 className="text-[0.8vw] relative bottom-[0.7vw]">MATERIAL DE ESTUDIO</h1>
                     </div>
-                    <div className="flex flex-col items-center">
-                        <img className="h-[3vw] w-[3vw] cursor-pointer" src={hat} onClick={() => setCurretmView('grades')} />
-                        <h1 className="text-[0.8vw]">CALIFICACIONES</h1>
+                    <div className="flex flex-col items-center h-[4vw] p-[0.2vw]">
+                        <img className="h-[2.4vw] w-[3vw] cursor-pointer" src={hat} onClick={() => setCurrentView('grades')} />
+                        <h1 className="text-[0.8vw] relative bottom-[0.7vw]">CALIFICACIONES</h1>
                     </div>
-                    <div className="flex flex-col items-center">
-                        <img className="h-[3vw] w-[3vw] cursor-pointer" src={video} onClick={() => setCurretmView('liveSession')} />
-                        <h1 className="text-[0.8vw]">LIVE</h1>
+                    <div className="flex flex-col items-center h-[4vw] p-[0.2vw]">
+                        <img className="h-[2.5vw] w-[3vw] cursor-pointer" src={video} onClick={() => setCurrentView('liveSession')} />
+                        <h1 className="text-[0.8vw] relative bottom-[0.7vw]">LIVE</h1>
                     </div>
-                    <div className="flex flex-col items-center">
-                        <img className="h-[3vw] w-[3vw] cursor-pointer" src={choice} onClick={() => setCurretmView('attendance')} />
-                        <h1 className="text-[0.8vw]">ASISTENCIA</h1>
+                    <div className="flex flex-col items-center h-[4vw] p-[0.2vw]">
+                        <img className="h-[2.4vw] w-[3vw] cursor-pointer" src={choice} onClick={() => setCurrentView('attendance')} />
+                        <h1 className="text-[0.8vw] relative bottom-[0.7vw]">ASISTENCIA</h1>
                     </div>
                 </Header>
                 <Content className="flex flex-col items-center gap-[1vw] w-full">
@@ -89,10 +90,7 @@ export const ModulesContents: React.FC = () => {
             <div className="border-b-2 border-solid border-[#016FB4] h-[2%] w-full">
                 <h1 className="text-[#016FB4] font-Caladea text-[0.6vw]">DASHBOARD</h1>
             </div>
-            <ModuleLayout>
-                {views[curretmView as keyof typeof views]}
-
-            </ModuleLayout>
+            <ModuleLayout>{views[currentView]}</ModuleLayout>
 
 
         </div>

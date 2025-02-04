@@ -1,4 +1,4 @@
-import { Card } from "antd"
+
 import enlace from "../../../assets/img/enlace.svg"
 import flag from "../../../assets/img/flag.svg"
 import Encuesta from "../../../assets/img/Encuesta.svg"
