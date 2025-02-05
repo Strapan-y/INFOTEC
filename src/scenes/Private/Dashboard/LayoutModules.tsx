@@ -34,36 +34,36 @@ export const ModulesContents: React.FC = () => {
     const ModuleLayout = (props: MyComponentProps) => {
         return (
             <Layout className="bg-[white] flex flex-col items-center rounded-lg shadow-lg h-full w-full overflow-auto">
-                <Header className="bg-[white] flex items-center justify-between gap-[2vw] h-[4vw] w-full p-[1vw] border-b-2 border-solid border-gray-500/10">
+                <Header className="bg-[white] flex items-center justify-between gap-[2vw] h-[5vw] w-full p-[1vw] border-b-2 border-solid border-gray-500/10">
 
                     <img className="h-[3vw] w-[3vw] items-center cursor-pointer" src={botonizquierda} onClick={() => navigate('/Academic_Content')} />
-                    <div className="flex flex-col items-center h-[4vw] p-[0.2vw]">
-                        <img className="h-[3vw] w-[3vw] cursor-pointer" src={speedometer} onClick={() => setCurrentView('dashboard')} />
-                        <h1 className="text-[0.8vw] relative bottom-[1vw]">TABLERO</h1>
+                    <div className="flex flex-col items-center h-[4vw] p-[0.2vw]  cursor-pointer" onClick={() => setCurrentView('dashboard')}>
+                        <img className="h-[3vw] w-[3vw]" src={speedometer}  />
+                        <h1 className="text-[0.7vw] relative bottom-[1vw] text-[#016FB4]">TABLERO</h1>
                     </div>
-                    <div className="flex flex-col items-center h-[4vw] p-[0.2vw]">
-                        <img className="h-[2.5vw] w-[3vw] cursor-pointer" src={vector} onClick={() => setCurrentView('onlineExam')} />
-                        <h1 className="text-[0.8vw] relative bottom-[0.7vw]">EXAMEN EN LINEA</h1>
+                    <div className="flex flex-col items-center h-[4vw] p-[0.2vw] cursor-pointer" onClick={() => setCurrentView('onlineExam')}>
+                        <img className="h-[2.5vw] w-[3vw]" src={vector} />
+                        <h1 className="text-[0.7vw] relative bottom-[0.7vw] text-[#016FB4]">EXAMEN EN LINEA</h1>
                     </div>
-                    <div className="flex flex-col items-center h-[4vw] p-[0.2vw]">
-                        <img className="h-[2.5vw] w-[3vw] cursor-pointer" src={ruler} onClick={() => setCurrentView('tasks')} />
-                        <h1 className="text-[0.8vw] relative bottom-[0.7vw]">TAREAS</h1>
+                    <div className="flex flex-col items-center h-[4vw] p-[0.2vw] cursor-pointer" onClick={() => setCurrentView('tasks')}>
+                        <img className="h-[2.5vw] w-[3vw]" src={ruler} />
+                        <h1 className="text-[0.7vw] relative bottom-[0.7vw] text-[#016FB4]">TAREAS</h1>
                     </div>
-                    <div className="flex flex-col items-center h-[4vw] p-[0.2vw]">
-                        <img className="h-[2.4vw] w-[3vw] cursor-pointer" src={book} onClick={() => setCurrentView('studyMaterial')} />
-                        <h1 className="text-[0.8vw] relative bottom-[0.7vw]">MATERIAL DE ESTUDIO</h1>
+                    <div className="flex flex-col items-center h-[4vw] p-[0.2vw] cursor-pointer" onClick={() => setCurrentView('studyMaterial')}>
+                        <img className="h-[2.4vw] w-[3vw]" src={book} />
+                        <h1 className="text-[0.7vw] relative bottom-[0.7vw] text-[#016FB4]">MATERIAL DE ESTUDIO</h1>
                     </div>
-                    <div className="flex flex-col items-center h-[4vw] p-[0.2vw]">
-                        <img className="h-[2.4vw] w-[3vw] cursor-pointer" src={hat} onClick={() => setCurrentView('grades')} />
-                        <h1 className="text-[0.8vw] relative bottom-[0.7vw]">CALIFICACIONES</h1>
+                    <div className="flex flex-col items-center h-[4vw] p-[0.2vw] cursor-pointer" onClick={() => setCurrentView('grades')}>
+                        <img className="h-[2.4vw] w-[3vw]" src={hat}/>
+                        <h1 className="text-[0.7vw] relative bottom-[0.7vw] text-[#016FB4]">CALIFICACIONES</h1>
                     </div>
-                    <div className="flex flex-col items-center h-[4vw] p-[0.2vw]">
-                        <img className="h-[2.5vw] w-[3vw] cursor-pointer" src={video} onClick={() => setCurrentView('liveSession')} />
-                        <h1 className="text-[0.8vw] relative bottom-[0.7vw]">LIVE</h1>
+                    <div className="flex flex-col items-center h-[4vw] p-[0.2vw] cursor-pointer" onClick={() => setCurrentView('liveSession')}>
+                        <img className="h-[2.5vw] w-[3vw]" src={video}/>
+                        <h1 className="text-[0.7vw] relative bottom-[0.7vw] text-[#016FB4]">LIVE</h1>
                     </div>
-                    <div className="flex flex-col items-center h-[4vw] p-[0.2vw]">
-                        <img className="h-[2.4vw] w-[3vw] cursor-pointer" src={choice} onClick={() => setCurrentView('attendance')} />
-                        <h1 className="text-[0.8vw] relative bottom-[0.7vw]">ASISTENCIA</h1>
+                    <div className="flex flex-col items-center h-[4vw] p-[0.2vw] cursor-pointer" onClick={() => setCurrentView('attendance')}>
+                        <img className="h-[2.4vw] w-[3vw]" src={choice}/>
+                        <h1 className="text-[0.7vw] relative bottom-[0.7vw] text-[#016FB4]">ASISTENCIA</h1>
                     </div>
                 </Header>
                 <Content className="flex flex-col items-center gap-[1vw] w-full">
@@ -86,7 +86,7 @@ export const ModulesContents: React.FC = () => {
     }
 
     return (
-        <div className="users flex flex-col h-full w-full p-[1vw] gap-[1vw]" >
+        <div className="users flex flex-col h-full w-full p-[2vw] gap-[1vw]" >
             <div className="border-b-2 border-solid border-[#016FB4] h-[2%] w-full">
                 <h1 className="text-[#016FB4] font-Caladea text-[0.6vw]">DASHBOARD</h1>
             </div>
