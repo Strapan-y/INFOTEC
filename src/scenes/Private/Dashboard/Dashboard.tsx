@@ -4,8 +4,11 @@ import Encuesta from "../../../assets/img/Encuesta.svg"
 import video from "../../../assets/img/video.svg"
 import plane from "../../../assets/img/plane-line.svg"
 import { Progress } from "antd"
+import { EventosCard } from "../../../Component/EventosCard/EventosCard"
+import { useNavigate } from "react-router-dom"
 
 export const Dashboard: React.FC = () => {
+    const navigate = useNavigate();
     const alumejem = [
         {
             nombre: "Juan",
@@ -27,7 +30,7 @@ export const Dashboard: React.FC = () => {
     return (
         <div className="flex flex justify-center items-center h-full w-full  gap-[2vw] p-[1vw]">
             <div className="flex flex-col justify-start h-full w-[22%] bg-opacity-35 gap-[2vw]">
-                <div className="bg-[white] rounded-lg shadow-lg  min-h-[32.5vw] max-h-[32.5vw] w-full border-2 border-solid border-[#F3F3F3]">
+                <div className="bg-[white] rounded-lg shadow-lg  min-h-[30vw] max-h-[30vw] w-full border-2 border-solid border-[#F3F3F3]">
                     <div className=" border-b-2 border-solid border-gray-100 w-full p-[1vw]">
                         <div>
                             <h1 className="text-[#323232] text-[0.8vw] font-Caladea">PROGRESO DE ESTUDIANTES</h1>
@@ -85,29 +88,31 @@ export const Dashboard: React.FC = () => {
 
 
             {/* Aqui va el tercer card de informacion*/}
-            <div className="flex flex-col justify-start h-full w-[20%] bg-opacity-35 gap-[1.5vw]">
+            <div className="flex flex-col justify-start h-full w-[20%] bg-opacity-35 gap-[1vw]">
                 <div className="bg-[white] rounded-lg shadow-lg  w-full">
-                    <div className=" w-full bg-[#00AEEF] rounded-t-lg shadow-md flex flex-col items-center justify-center text-white p-[1vw]">
+                    <div className=" w-full bg-[#00AEEF] h-[5vw] rounded-t-lg shadow-md flex flex-col items-center justify-center text-white p-[0.3vw]">
                         <div className="text-[2.5rem] font-bold leading-none">22</div>
                         <div className="text-[1.2rem] font-semibold">Miercoles</div>
                         <div className="text-sm">Enero 2025</div>
                     </div>
-                    <div className="rounded-lg h-[9vw] w-full p-[1vw] min-h-[11vw] max-h-[11vw] overflow-y-auto">
-                        <div className="flex flex-col gap-[0.3vw] ">
-                            <div className="bg-[#EFFBFF] rounded-lg w-full p-[1vw] flex justify-between">
-                                <h1 className="text-[#016FB4]">Clase Autocad en vivo</h1>
-                                <h1 className="text-[#016FB4]">5pm</h1>
+                    <div className="rounded-lg w-full p-[0.5vw] min-h-[10.5vw] max-h-[10.5vw] overflow-y-auto">
+                        <EventosCard
+                            NameTitle={"Clase Autocad en vivo"}
+                            hora={"5pm"}
+                            onClick={() => navigate('/')}
+                        />
+                        <EventosCard
+                            NameTitle={"Clase Autocad en vivo"}
+                            hora={"5pm"}
+                            onClick={() => navigate('/')}
+                        />
+                        <EventosCard
+                            NameTitle={"Clase Autocad en vivo"}
+                            hora={"5pm"}
+                            onClick={() => navigate('/')}
+                        />
 
-                            </div>
-                            <div className="bg-[#EFFBFF] rounded-lg w-full p-[1vw] flex justify-between">
-                                <h1 className="text-[#016FB4]">Clase Excel en vivo</h1>
-                                <h1 className="text-[#016FB4]">5pm</h1>
-                            </div>
-                            <div className="bg-[#EFFBFF] rounded-lg w-full p-[1vw] flex justify-between">
-                                <h1 className="text-[#016FB4]">Clase Excel en vivo</h1>
-                                <h1 className="text-[#016FB4]">5pm</h1>
-                            </div>
-                        </div>
+                       
                     </div>
                 </div>
 
