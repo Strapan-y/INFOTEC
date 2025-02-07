@@ -1,64 +1,59 @@
-import edit from '../../../assets/img/edit.svg';
-import delet from '../../../assets/img/baseline-delete.svg';
 import { Input, Progress } from "antd"
 import Mas_blue from '../../../assets/img/Mas_blue.svg';
+import edit from '../../../assets/img/edit.svg';
+import view_eye from '../../../assets/img/view_eye.svg';
+import encuesta from '../../../assets/img/Encuestablue.svg';
 import { useForm } from "react-hook-form"
 
 export const OnlineExam: React.FC = () => {
     const { Search } = Input;
 
-    const onChange = (checked: boolean) => {
-        console.log(`switch to ${false}`);
-    };
+    const data = [
+        { estado: "Activo", titulo: "Exam 1", fecha: "13/01/2025", preguntas: 15 },
+        { estado: "Inactivo", titulo: "Exam 2", fecha: "13/01/2025", preguntas: 20 },
+    ];
 
     return (
-        <div className="flex flex-col items-center justify-start h-full pt-[1vw] p-[2vw] w-full">
-            <div className="flex flex-col items-center justify-start pt-[1vw] h-full w-full bg-opacity-35 gap-[2%]">
-                <div className="bg-white rounded-lg shadow-lg min-h-[80%] pt-[1vw] px-[2vw] max-h-[80%] w-[80%] overflow-auto border-2 border-solid border-[#F3F3F3]">
-                    <table className="table-fixed w-full border-separate" style={{ borderSpacing: '0 10px' }}>
-                        <thead>
-                            <tr className="text-[#016FB4]">
-                                <th className="p-4">#</th>
-                                <th className="p-4">ESTADO</th>
-                                <th className="p-4">TITULO</th>
-                                <th className="p-4">FECHA</th>
-                                <th className="p-4">PREGUNTAS</th>
-                                <th className="p-4">OPCIONES</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            {/* Fila 1 */}
-                            <tr>
-                                <td className="p-4 bg-[#016FB4] text-white rounded-l-xl">1</td>
-                                <td className="p-4 bg-[#016FB4] text-white">000000251</td>
-                                <td className="p-4 bg-[#016FB4] text-white">PROYECTANDO</td>
-                                <td className="p-4 bg-[#016FB4] text-white">000000251</td>
-                                <td className="p-4 bg-[#016FB4] text-[0.8vw] text-white">WWWWWWWWW</td>
-                                <td className="p-4 bg-[#016FB4] text-white flex justify-center items-center gap-5 rounded-r-xl">
-                                    <img className="h-[1vw] hover:scale-110 transition-transform" src={delet} alt="Delete" />
-                                </td>
-                            </tr>
-                            <tr className="">
-                                <td className="p-4 bg-[#016FB4] h-[3vw] text-white rounded-l-xl">1</td>
-                                <td className="p-4 bg-[#016FB4] h-[3vw] text-white">000000251</td>
-                                <td className="p-4 bg-[#016FB4] h-[3vw] text-white">PROYECTANDO</td>
-                                <td className="p-4 bg-[#016FB4] h-[3vw] text-white">000000251</td>
-                                <td className="p-4 bg-[#016FB4] h-[3vw] text-white">WWWWWWWWW</td>
-                                <td className="p-4 bg-[#016FB4] h-[3vw] text-white flex justify-center items-center gap-5 rounded-r-xl">
-                                    <img className="h-[2vw] hover:scale-110 transition-transform" src={edit} alt="Edit" />
+        <div className="w-full h-full flex flex-col items-center justify-start gap-3 pt-[3vw] p-[2vw]">
+            <div className='flex justify-center h-full w-full w-full px-[2vw] pb-[2vw]'>
+                <div className="bg-white p-4 rounded-lg shadow-md h-[60%] w-full border-2 border-solid border-[#F3F3F3]">
+                    {/* Header */}
+                    <div className="grid grid-cols-5 justify-center text-[#016FB4] font-bold p-3 border-b">
+                        <div className="flex items-center justify-center">ESTADO</div>
+                        <div className="flex items-center justify-center">TITULO</div>
+                        <div className="flex items-center justify-center">FECHA</div>
+                        <div className="flex items-center justify-center">PREGUNTAS</div>
+                        <div className="flex items-center justify-center">OPCIONES</div>
+                    </div>
 
-                                </td>
-                            </tr>
-
-
-                        </tbody>
-                    </table>
+                    {/* Data Rows */}
+                    {data.map((item, index) => (
+                        <div
+                            key={index}
+                            className="grid grid-cols-5 items-center bg-blue-50 hover:bg-blue-100 p-3 rounded-md mb-2"
+                        >
+                            <div className="flex items-center justify-center">{item.estado}</div>
+                            <div className="flex items-center justify-center">{item.titulo}</div>
+                            <div className="flex items-center justify-center">{item.fecha}</div>
+                            <div className="flex items-center justify-center">{item.preguntas}</div>
+                            <div className="flex gap-2 justify-center text-blue-600">
+                                <button className="w-10 h-10 bg-blue-200 rounded-full flex items-center justify-center">
+                                    <img src={edit} alt="Edit" className="w-5 h-5" />
+                                </button>
+                                <button className="w-10 h-10 bg-blue-200 rounded-full flex items-center justify-center">
+                                    <img src={view_eye} alt="View" className="w-5 h-5" />
+                                </button>
+                                <button className="w-10 h-10 bg-blue-200 rounded-full flex items-center justify-center">
+                                    <img src={encuesta} alt="Survey" className="w-5 h-5" />
+                                </button>
+                            </div>
+                        </div>
+                    ))}
                 </div>
-                <div className="mt-4">
-                    <img src={Mas_blue} alt="Agregar" className="cursor-pointer hover:opacity-80 transition-opacity" />
-                </div>
+
             </div>
+
         </div>
 
     );
-};
+}
