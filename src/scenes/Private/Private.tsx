@@ -3,10 +3,10 @@ import PrivateLayout from "../../layouts/PrivateLayout";
 import { Home } from "./Home/Home";
 import { Users } from "./Users/Users";
 import { Academic } from "./Academic/CrearCursoModule";
-import { Academic_module } from "./Academic/CrearModulos";
+import { AcademicModule } from "./Academic/CrearModulos"; // PascalCase
 import { Inventory } from "./Inventory/Inventory";
-import { Content_Module } from "./Academic/CrearEntradasModule";
-import { Content_Entrada } from "./Academic/VisualizarEntradaModulos";
+import { ContentModule } from "./Academic/CrearEntradasModule"; // PascalCase
+import { ContentEntrada } from "./Academic/VisualizarEntradaModulos"; // PascalCase
 import { ModulesContents } from "./Dashboard/LayoutModules";
 
 const Private = () => {
@@ -16,10 +16,10 @@ const Private = () => {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/users" element={<Users />} />
-          <Route path="/Academic" element={<Academic />} />
-          <Route path="/Academic_module" element={<Academic_module />} />
-          <Route path="/Content_Module" element={<Content_Module />} />
-          <Route path="/Content_Entrada" element={<Content_Entrada />} />
+          <Route path="/academic" element={<Academic />} />
+          <Route path="/academic-module" element={<AcademicModule />} />
+          <Route path="/content-module" element={<ContentModule />} />
+          <Route path="/content-entrada" element={<ContentEntrada />} />
           <Route path="/dashboard" element={<ModulesContents />} />
           <Route path="/inventory" element={<Inventory />} />
 

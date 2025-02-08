@@ -36,33 +36,33 @@ export const ModulesContents: React.FC = () => {
             <Layout className="bg-[white] flex flex-col items-center rounded-lg shadow-lg h-full w-full overflow-auto">
                 <Header className="bg-[white] flex items-center justify-between gap-[2vw] h-[5vw] w-full p-[1vw] border-b-2 border-solid border-gray-500/10">
 
-                    <img className="h-[3vw] w-[3vw] items-center cursor-pointer" src={botonizquierda} onClick={() => navigate('/Academic_Content')} />
+                    <img className="h-[3vw] w-[3vw] items-center cursor-pointer" alt=""  src={botonizquierda} onClick={() => navigate('/Academic_Content')} />
                     <div className="flex flex-col items-center h-[4vw] p-[0.2vw]  cursor-pointer" onClick={() => setCurrentView('dashboard')}>
-                        <img className="h-[3vw] w-[3vw]" src={speedometer}  />
+                        <img className="h-[3vw] w-[3vw]" src={speedometer}  alt=""/>
                         <h1 className="text-[0.7vw] relative bottom-[1vw] text-[#016FB4]">TABLERO</h1>
                     </div>
                     <div className="flex flex-col items-center h-[4vw] p-[0.2vw] cursor-pointer" onClick={() => setCurrentView('onlineExam')}>
-                        <img className="h-[2.5vw] w-[3vw]" src={vector} />
+                        <img className="h-[2.5vw] w-[3vw]" src={vector} alt=""/>
                         <h1 className="text-[0.7vw] relative bottom-[0.7vw] text-[#016FB4]">EXAMEN EN LINEA</h1>
                     </div>
                     <div className="flex flex-col items-center h-[4vw] p-[0.2vw] cursor-pointer" onClick={() => setCurrentView('tasks')}>
-                        <img className="h-[2.5vw] w-[3vw]" src={ruler} />
+                        <img className="h-[2.5vw] w-[3vw]" src={ruler} alt=""/>
                         <h1 className="text-[0.7vw] relative bottom-[0.7vw] text-[#016FB4]">TAREAS</h1>
                     </div>
                     <div className="flex flex-col items-center h-[4vw] p-[0.2vw] cursor-pointer" onClick={() => setCurrentView('studyMaterial')}>
-                        <img className="h-[2.4vw] w-[3vw]" src={book} />
+                        <img className="h-[2.4vw] w-[3vw]" src={book} alt=""/>
                         <h1 className="text-[0.7vw] relative bottom-[0.7vw] text-[#016FB4]">MATERIAL DE ESTUDIO</h1>
                     </div>
                     <div className="flex flex-col items-center h-[4vw] p-[0.2vw] cursor-pointer" onClick={() => setCurrentView('grades')}>
-                        <img className="h-[2.4vw] w-[3vw]" src={hat}/>
+                        <img className="h-[2.4vw] w-[3vw]" src={hat} alt=""/>
                         <h1 className="text-[0.7vw] relative bottom-[0.7vw] text-[#016FB4]">CALIFICACIONES</h1>
                     </div>
                     <div className="flex flex-col items-center h-[4vw] p-[0.2vw] cursor-pointer" onClick={() => setCurrentView('liveSession')}>
-                        <img className="h-[2.5vw] w-[3vw]" src={video}/>
+                        <img className="h-[2.5vw] w-[3vw]" src={video} alt=""/>
                         <h1 className="text-[0.7vw] relative bottom-[0.7vw] text-[#016FB4]">LIVE</h1>
                     </div>
                     <div className="flex flex-col items-center h-[4vw] p-[0.2vw] cursor-pointer" onClick={() => setCurrentView('attendance')}>
-                        <img className="h-[2.4vw] w-[3vw]" src={choice}/>
+                        <img className="h-[2.4vw] w-[3vw]" src={choice} alt=""/>
                         <h1 className="text-[0.7vw] relative bottom-[0.7vw] text-[#016FB4]">ASISTENCIA</h1>
                     </div>
                 </Header>
@@ -86,7 +86,7 @@ export const ModulesContents: React.FC = () => {
     }
 
     return (
-        <div className="users flex flex-col h-full w-full p-[2vw] gap-[1vw] " >
+        <div className="users flex flex-col h-full w-full p-[2vw] gap-[0.5vw] " >
             <div className="border-b-2 border-solid border-[#016FB4] h-[2%] w-full ">
                 <h1 className="text-[#016FB4] font-Caladea text-[0.6vw]">DASHBOARD</h1>
             </div>

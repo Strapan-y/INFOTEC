@@ -3,7 +3,7 @@ import filled from "../../../assets/img/filled.svg";
 import mass from "../../../assets/img/Mas.svg";
 import { useForm } from 'react-hook-form';
 import { useEffect, useState } from "react";
-import { DeleteOutlined, LoadingOutlined, PlusOutlined } from "@ant-design/icons";
+import { PlusOutlined } from "@ant-design/icons";
 import { AcademiCard } from "../../../Component/AcademiCard/AcademiCard";
 import { useLocation, useNavigate } from "react-router-dom";
 import ReactQuill, { Quill } from "react-quill";
@@ -27,11 +27,10 @@ export const Academic = () => {
     // Estados para las imágenes
     const [crearImageUrl, setCrearImageUrl] = useState<string>();
     const [crearFileList, setCrearFileList] = useState<UploadFile[]>([]);
-    const [editarImageUrl, setEditarImageUrl] = useState<string>();
-    const [editarFileList, setEditarFileList] = useState<UploadFile[]>([]);
+   
     const [content, setContent] = useState<string>('');
 
-    const { Dragger } = Upload;
+    
 
     useEffect(() => {
         if (new URLSearchParams(location.search).get('showModal') === 'true') {
@@ -65,21 +64,6 @@ export const Academic = () => {
             reader.readAsDataURL(file);
         } else {
             setCrearImageUrl(undefined);
-        }
-    };
-
-    // Handlers para Editar Programa
-    const handleChangeEditar: UploadProps['onChange'] = ({ fileList: newFileList }) => {
-        const latestFile = newFileList.slice(-1);
-        setEditarFileList(latestFile);
-
-        if (latestFile.length > 0) {
-            const file = latestFile[0].originFileObj as File;
-            const reader = new FileReader();
-            reader.onload = (e) => setEditarImageUrl(e.target?.result as string);
-            reader.readAsDataURL(file);
-        } else {
-            setEditarImageUrl(undefined);
         }
     };
 
@@ -159,7 +143,7 @@ export const Academic = () => {
         }
     });
     return (
-        <div className="users flex flex-col h-full w-full gap-[1vw] p-[1vw]">
+        <div className="users flex flex-col h-full w-full gap-[0.5vw] p-[2vw]">
             <div className="border-b-2 border-solid border-[#016FB4] h-[2%] w-full">
                 <h1 className="text-[#016FB4] font-Caladea text-[0.6vw]">GESTIONAR MODULO ACADEMICO</h1>
             </div>
@@ -167,9 +151,9 @@ export const Academic = () => {
                 <div className="flex items-start justify-between w-full ">
                     <Search className="custon-search w-[20vw] h-[3vw]" placeholder="Buscar..." enterButton />
                 </div>
-                <div className="flex flex-wrap items-start justify-start h-[30vw] w-[50vw] p-[2vw] gap-[2vw] w-full bg-opacity-35 overflow-auto">
+                <div className="flex flex-wrap items-start justify-start h-[30vw] p-[2vw] gap-[2vw] w-full bg-opacity-35 overflow-auto">
                     <div className=" flex flex-col items-center justify-center bg-[white] rounded-lg shadow-lg h-[40%] w-[23%] gap-[0.5vw] border-2 border-dashed border-[#C1C1C1] cursor-pointer" onClick={() => setIsModalPrograma(true)}>
-                        <img className="w-[3vw]" src={mass} />
+                        <img className="w-[3vw]" src={mass} alt=""/>
                         <h1 className="text-[#00AEEF] text-[0.6vw]">Crear Nuevo Programa</h1>
                     </div>
 

@@ -2,19 +2,19 @@ import { useNavigate } from "react-router-dom";
 import botonizquierda from "../../../assets/img/buttonleft.svg";
 import imagenejemplo from "../../../assets/img/image.svg";
 
-export const Content_Entrada = () => {
+export const ContentEntrada = () => {
     const navigate = useNavigate()
 
 
     return (
-        <div className="users flex flex-col h-full w-full p-[1vw] gap-[1vw]" >
+        <div className="users flex flex-col h-full w-full p-[2vw] gap-[0.5vw]" >
             <div className="border-b-2 border-solid border-[#016FB4] h-[2%] w-full">
                 <h1 className="text-[#016FB4] font-Caladea text-[0.6vw]">MODULO XXX CONTENIDO</h1>
             </div>
             <div className="bg-[white] flex flex-col items-center rounded-lg shadow-lg h-full w-full pt-[2vw] overflow-auto">
-                <div className="flex gap-[2vw] h-[15vw] w-[90%] p-[1vw] border-b-2 border-solid border-gray-500/10">
-                    <img className="h-[3vw] w-[3vw] relative right-[3vw] cursor-pointer" src={botonizquierda} onClick={() => navigate('/Academic_module')} />
-                    <img className="shadow-lg rounded-lg object-cover h-[12vw] w-[12vw]" src={imagenejemplo} />
+                <div className="flex gap-[2vw] h-[15vw] w-[90%] p-[1vw]">
+                    <img className="h-[3vw] w-[3vw] relative right-[3vw] cursor-pointer" alt="" src={botonizquierda} onClick={() => navigate('/Academic_module')} />
+                    <img className="shadow-lg rounded-lg object-cover h-[12vw] w-[12vw]" src={imagenejemplo} alt=""/>
                     <div className="flex flex-col h-[10vw] w-[50vw] gap-[1vw]">
                         <h1 className="text-[#016FB4] text-[1.5vw]">FUNDAMENTOS XX</h1>
                         <p className="text-[#00000] leading-7 text-justify text-[1vw]">Lorem Ipsum es simplemente el texto de relleno de las imprentas y archivos de texto.
@@ -24,7 +24,6 @@ export const Content_Entrada = () => {
                     </div>
                 </div>
             </div>
-
         </div>
     );
 }

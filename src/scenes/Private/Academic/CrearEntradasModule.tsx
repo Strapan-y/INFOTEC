@@ -1,9 +1,9 @@
-import { Navigate, useLocation, useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import botonizquierda from "../../../assets/img/buttonleft.svg";
 import imagenejemplo from "../../../assets/img/image.svg";
-import { GetProp, Input, message, Modal, Switch, Upload, UploadFile, UploadProps } from "antd";
+import { GetProp, message, Modal, Switch, Upload, UploadFile, UploadProps } from "antd";
 import { useEffect, useState } from "react";
-import { set, useForm } from "react-hook-form";
+import { useForm } from "react-hook-form";
 import { EntradaCard } from "../../../Component/EntradaCard/EntradaCard";
 import Quill from "quill";
 import ReactQuill from "react-quill";
@@ -13,12 +13,10 @@ import edit from "../../../assets/img/edit.svg";
 import { PlusOutlined } from "@ant-design/icons";
 
 
-
-const { Search } = Input;
 type FileType = Parameters<GetProp<UploadProps, 'beforeUpload'>>[0];
 Quill.register("modules/imageResize", ImageResize);
 
-export const Content_Module = () => {
+export const ContentModule = () => {
     const navigate = useNavigate()
     const location = useLocation();
     const [istIsModalCrearEntrada, setIsModalCrearEntrada] = useState(false);
@@ -31,7 +29,7 @@ export const Content_Module = () => {
     const [editarImageUrl, setEditarImageUrl] = useState<string>();
     const [editarFileList, setEditarFileList] = useState<UploadFile[]>([]);
     const [content, setContent] = useState<string>('');
-    const { Dragger } = Upload;
+    
 
     useEffect(() => {
         if (new URLSearchParams(location.search).get('showModal') === 'true') {
@@ -166,18 +164,18 @@ export const Content_Module = () => {
     });
 
     return (
-        <div className="users flex flex-col h-full w-full p-[1vw] gap-[1vw]" >
+        <div className="users flex flex-col h-full w-full p-[2vw] gap-[0.5vw]" >
             <div className="border-b-2 border-solid border-[#016FB4] h-[2%] w-full">
                 <h1 className="text-[#016FB4] font-Caladea text-[0.6vw]">GESTIONAR ENTRADAS MODULO</h1>
             </div>
 
             <div className="bg-[white] flex flex-col items-center rounded-lg shadow-lg h-full w-full pt-[1.5vw] overflow-auto">
                 <div className="flex gap-[2vw] h-[15vw] w-[90%] p-[1vw] border-b-2 border-solid border-gray-500/10">
-                    <img className="h-[3vw] w-[3vw] relative right-[3vw] cursor-pointer" src={botonizquierda} onClick={() => navigate('/Academic_Module')} />
-                    <img className="shadow-lg rounded-lg object-cover h-[12vw] w-[12vw]" src={imagenejemplo} />
+                    <img className="h-[3vw] w-[3vw] relative right-[3vw] cursor-pointer" alt="" src={botonizquierda} onClick={() => navigate('/Academic_Module')} />
+                    <img className="shadow-lg rounded-lg object-cover h-[12vw] w-[12vw]" alt="" src={imagenejemplo} />
                     <div className="flex flex-col h-[10vw] w-full gap-[2vw]">
                         <h1 className="text-[#016FB4] text-[1.5vw]">MODULO 1</h1>
-                        <div className="flex w-full items-center justify-between items-start">
+                        <div className="flex w-full items-center justify-between">
                             <p className="text-[#00000] leading-7 text-justify text-[1vw] flex-1">
                                 Lorem Ipsum es simplemente el texto de relleno de las imprentas y archivos de texto.
                                 Lorem Ipsum ha sido el texto de relleno estándar de las industrias desde el año 1500,
@@ -187,7 +185,7 @@ export const Content_Module = () => {
                                 electrónicos, quedando esencialmente igual al original.
                             </p>
                             <div className="flex justify-center pl-[3vw]">
-                                <img className="w-[1.5vw]  cursor-pointer" src={edit} onClick={() => setIsModalEditarModulo(true)} />
+                                <img className="w-[1.5vw]  cursor-pointer" alt="" src={edit} onClick={() => setIsModalEditarModulo(true)} />
 
                             </div>
 
@@ -196,7 +194,7 @@ export const Content_Module = () => {
                         </div>
                     </div>
                 </div>
-                <div className="flex flex-col h-full w-full p-[2vw] gap-[0.5vw]">
+                <div className="flex flex-col h-full w-full p-[1vw] gap-[0.5vw]">
                     <button className="bg-[#00AEEF] self-end text-white text-[1vw] font-semibold px-3 py-2 rounded-lg ml-2 hover:bg-[#BEEDFF] hover:border-2 hover:border-[#016FB4] hover:text-[#016FB4]" onClick={() => setIsModalCrearEntrada(true)}>CREAR ENTRADA</button>
 
                     <div className="flex flex-col items-center gap-[0.5vw] w-full">
@@ -240,7 +238,7 @@ export const Content_Module = () => {
                 footer={null}
                 onCancel={() => setIsModalCrearEntrada(false)}>
 
-                <div className="flex flex-wrap border-t-[0.2vw] h-[28vw] justify-center border-solid border-gray-100 w-full flex pt-[1vw] gap-4 ">
+                <div className="flex flex-wrap border-t-[0.2vw] h-[35vw] justify-center border-solid border-gray-100 w-full pt-[1vw] gap-4 ">
                     <div>
                         <h1 className="p-1 px-3">CODIGO</h1>
                         <input
@@ -307,7 +305,7 @@ export const Content_Module = () => {
                 footer={null}
                 onCancel={() => setIsModalEditarEntrada(false)}>
 
-                <div className="flex flex-wrap border-t-[0.2vw] h-[28vw] justify-center border-solid border-gray-100 w-full flex pt-[1vw] gap-4 ">
+                <div className="flex flex-wrap border-t-[0.2vw] h-[28vw] justify-center border-solid border-gray-100 w-full pt-[1vw] gap-4 ">
                     <div>
                         <h1 className="p-1 px-3">CODIGO</h1>
                         <input

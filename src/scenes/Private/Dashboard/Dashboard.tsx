@@ -28,7 +28,7 @@ export const Dashboard: React.FC = () => {
         }
     ]
     return (
-        <div className="flex flex justify-center items-center h-full w-full  gap-[2vw] p-[1vw]">
+        <div className="flex justify-center items-center h-full w-full  gap-[2vw] p-[1vw]">
             <div className="flex flex-col justify-start h-full w-[22%] bg-opacity-35 gap-[2vw]">
                 <div className="bg-[white] rounded-lg shadow-lg  min-h-[30vw] max-h-[30vw] w-full border-2 border-solid border-[#F3F3F3]">
                     <div className=" border-b-2 border-solid border-gray-100 w-full p-[1vw]">
@@ -74,13 +74,13 @@ export const Dashboard: React.FC = () => {
                     {/* Aqui va el contenedor de enlaces del segundo card*/}
                     <div className="rounded-lg h-[20%] w-full p-[0.8vw] flex justify-between">
                         <div className="flex">
-                            <img className="w-[2vw] h-[1.5vw]" src={enlace} />
-                            <img className="w-[2vw] h-[1.5vw]" src={flag} />
-                            <img className="w-[2vw] h-[1.5vw]" src={Encuesta} />
-                            <img className="w-[2vw] h-[1.5vw]" src={video} />
+                            <img className="w-[2vw] h-[1.5vw]" src={enlace} alt="" />
+                            <img className="w-[2vw] h-[1.5vw]" src={flag} alt=""/>
+                            <img className="w-[2vw] h-[1.5vw]" src={Encuesta} alt="" />
+                            <img className="w-[2vw] h-[1.5vw]" src={video} alt=""/>
 
                         </div>
-                        <button className="bg-[#00AEEF] text-[white] p-[0.5vw] flex rounded-lg items-center text-[1vw] gap-[0.1vw]"><img className="w-[2vw] h-[2vw]" src={plane} />Enviar</button>
+                        <button className="bg-[#00AEEF] text-[white] p-[0.5vw] flex rounded-lg items-center text-[1vw] gap-[0.1vw]"><img className="w-[2vw] h-[2vw]" src={plane} alt="" />Enviar</button>
 
                     </div>
                 </div>
