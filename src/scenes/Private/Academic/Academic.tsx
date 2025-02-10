@@ -163,7 +163,7 @@ export const Academic = () => {
                         docent={"DOCENTE:Juan Perez"}
                         w={"23%"}
                         h={"40%"}
-                        onClick={() => navigate('/Academic_module')}
+                        onClick={() => navigate('/AcademicModule')}
                     />
 
 

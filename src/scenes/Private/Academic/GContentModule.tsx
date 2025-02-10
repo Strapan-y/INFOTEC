@@ -16,7 +16,7 @@ import { PlusOutlined } from "@ant-design/icons";
 type FileType = Parameters<GetProp<UploadProps, 'beforeUpload'>>[0];
 Quill.register("modules/imageResize", ImageResize);
 
-export const ContentModule = () => {
+export const GContentModule = () => {
     const navigate = useNavigate()
     const location = useLocation();
     const [istIsModalCrearEntrada, setIsModalCrearEntrada] = useState(false);
@@ -171,7 +171,7 @@ export const ContentModule = () => {
 
             <div className="bg-[white] flex flex-col items-center rounded-lg shadow-lg h-full w-full pt-[1.5vw] overflow-auto">
                 <div className="flex gap-[2vw] h-[15vw] w-[90%] p-[1vw] border-b-2 border-solid border-gray-500/10">
-                    <img className="h-[3vw] w-[3vw] relative right-[3vw] cursor-pointer" alt="" src={botonizquierda} onClick={() => navigate('/Academic_Module')} />
+                    <img className="h-[3vw] w-[3vw] relative right-[3vw] cursor-pointer" alt="" src={botonizquierda} onClick={() => navigate('/AcademicModule')} />
                     <img className="shadow-lg rounded-lg object-cover h-[12vw] w-[12vw]" alt="" src={imagenejemplo} />
                     <div className="flex flex-col h-[10vw] w-full gap-[2vw]">
                         <h1 className="text-[#016FB4] text-[1.5vw]">MODULO 1</h1>
@@ -206,7 +206,7 @@ export const ContentModule = () => {
                             fecha="12/12/2021"
                             w={"100%"}
                             h={"5vw"}
-                            onClick={() => navigate('/Content_Entrada')}
+                            onClick={() => navigate("/ContentEntrada")}
                         />
                         <EntradaCard
                             img={imagenejemplo}
@@ -215,7 +215,7 @@ export const ContentModule = () => {
                             fecha="12/12/2021"
                             w={"100%"}
                             h={"5vw"}
-                            onClick={() => navigate('/Content_Entrada')}
+                            onClick={() => navigate('/ContentEntrada')}
                         />
                         <EntradaCard
                             img={imagenejemplo}
@@ -224,8 +224,9 @@ export const ContentModule = () => {
                             fecha="12/12/2021"
                             w={"100%"}
                             h={"5vw"}
-                            onClick={() => navigate('/Content_Entrada')}
+                            onClick={() => navigate('/ContentEntrada')}
                         />
+                        
 
                     </div>
 

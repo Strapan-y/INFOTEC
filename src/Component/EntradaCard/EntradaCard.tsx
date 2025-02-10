@@ -17,24 +17,24 @@ export const EntradaCard: React.FC<AcademiCardProps> = ({ img, Tmodule, fecha, e
         {
             key: '1',
             label: (
-                <a target="_blank" rel="noopener noreferrer" onClick={() => navigate('/Content_Module?showModal=true')}>
+                <button onClick={() => navigate('/ContentModule?showModal=true')}>
                     EDITAR ENTRADA
-                </a>
+                </button>
             ),
         },
         {
             key: '2',
             label: (
-                <a target="_blank" rel="noopener noreferrer">
+                <button onClick={() => navigate('/ContentModule?showModal=true')}>
                     ELIMINAR ENTRADA
-                </a>
+                </button>
             ),
         },
     ];
     return (
         <div className={`relative flex items-center justify-between bg-[white] rounded-lg shadow-lg gap-[0.5vw]`} style={{ width: w, height: h }}>
             <div className='flex items-center justify-between p-[1vw] gap-[0.5vw]'>
-                <img className="w-[4vw] bg-radial" src={img} />
+                <img className="w-[4vw] bg-radial" src={img} alt='' />
                 <div>
                     <h1 className="text-[#000000] text-[1vw]">{Tmodule}</h1>
                     <h5 className="text-[#016FB4] text-[0.6vw]">{estado + " " + fecha}</h5>
@@ -45,7 +45,7 @@ export const EntradaCard: React.FC<AcademiCardProps> = ({ img, Tmodule, fecha, e
             <div className='flex'>
                 <button className="bg-[#00AEEF] text-white text-[1vw] font-semibold px-2 py-1 rounded-lg ml-2 hover:bg-[#BEEDFF] hover:border-2 hover:border-[#016FB4] hover:text-[#016FB4]" onClick={onClick}>Ver</button>
                 <Dropdown menu={{ items }} placement="bottomRight" arrow>
-                    <img className="w-[1.5vw] h-[1.5vw] cursor-pointer" src={op} />
+                    <img className="w-[1.5vw] h-[1.5vw] cursor-pointer" src={op} alt='' />
                 </Dropdown>
             </div>
 

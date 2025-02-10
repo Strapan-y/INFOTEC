@@ -36,7 +36,7 @@ export const ModulesContents: React.FC = () => {
             <Layout className="bg-[white] flex flex-col items-center rounded-lg shadow-lg h-full w-full overflow-auto">
                 <Header className="bg-[white] flex items-center justify-between gap-[2vw] h-[5vw] w-full p-[1vw] border-b-2 border-solid border-gray-500/10">
 
-                    <img className="h-[3vw] w-[3vw] items-center cursor-pointer" alt=""  src={botonizquierda} onClick={() => navigate('/Academic_Content')} />
+                    <img className="h-[3vw] w-[3vw] items-center cursor-pointer" alt=""  src={botonizquierda} onClick={() => navigate('/AcademicModule')} />
                     <div className="flex flex-col items-center h-[4vw] p-[0.2vw]  cursor-pointer" onClick={() => setCurrentView('dashboard')}>
                         <img className="h-[3vw] w-[3vw]" src={speedometer}  alt=""/>
                         <h1 className="text-[0.7vw] relative bottom-[1vw] text-[#016FB4]">TABLERO</h1>

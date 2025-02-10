@@ -2,7 +2,7 @@ import { useNavigate } from "react-router-dom";
 import botonizquierda from "../../../assets/img/buttonleft.svg";
 import imagenejemplo from "../../../assets/img/image.svg";
 
-export const ContentEntrada = () => {
+export const ViewContentEntrada = () => {
     const navigate = useNavigate()
 
 
@@ -13,7 +13,7 @@ export const ContentEntrada = () => {
             </div>
             <div className="bg-[white] flex flex-col items-center rounded-lg shadow-lg h-full w-full pt-[2vw] overflow-auto">
                 <div className="flex gap-[2vw] h-[15vw] w-[90%] p-[1vw]">
-                    <img className="h-[3vw] w-[3vw] relative right-[3vw] cursor-pointer" alt="" src={botonizquierda} onClick={() => navigate('/Academic_module')} />
+                    <img className="h-[3vw] w-[3vw] relative right-[3vw] cursor-pointer" alt="" src={botonizquierda} onClick={() => navigate('/AcademicModule')} />
                     <img className="shadow-lg rounded-lg object-cover h-[12vw] w-[12vw]" src={imagenejemplo} alt=""/>
                     <div className="flex flex-col h-[10vw] w-[50vw] gap-[1vw]">
                         <h1 className="text-[#016FB4] text-[1.5vw]">FUNDAMENTOS XX</h1>
