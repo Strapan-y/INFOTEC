@@ -11,7 +11,7 @@ import { Layout } from "antd";
 import { Content, Header } from "antd/es/layout/layout";
 import { useState } from "react";
 import { Dashboard } from "./Dashboard";
-import { OnlineExam } from "./OnlineExam";
+import { OnlineExam } from "./OnlineExam/OnlineExam";
 import { Tasks } from "./Tasks";
 import { StudyMaterial } from "./StudyMaterial";
 import { Grades } from "./Grades";
