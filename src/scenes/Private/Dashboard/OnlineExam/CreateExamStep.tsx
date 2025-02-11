@@ -9,11 +9,6 @@ interface CreateExamProps {
 export const CreateExamStep: React.FC<CreateExamProps> = ({ setCrearExamen }) => {
     const [content, setContent] = useState<string>('');
 
-    const handleSave = () => {
-        console.log('Contenido guardado:', content);
-
-    };
-
     const handleContentChange = (value: string) => {
         setContent(value);
     };
