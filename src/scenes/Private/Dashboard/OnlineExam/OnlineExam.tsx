@@ -3,9 +3,10 @@ import edit from '../../../../assets/img/edit.svg';
 import view_eye from '../../../../assets/img/view_eye.svg';
 import encuesta from '../../../../assets/img/Encuestablue.svg';
 import { useState } from 'react';
-import { Button, Modal,Steps} from 'antd';
+import { Button, Modal, Steps } from 'antd';
 import { CreateExamStep } from './CreateExamStep';
-import { AddQuestion } from './AddQuestions';  
+import { AddQuestion } from './AddQuestions';
+import { Color } from 'antd/es/color-picker';
 
 
 
@@ -23,7 +24,7 @@ export const OnlineExam: React.FC = () => {
         { estado: "Inactivo", titulo: "Exam 2", fecha: "13/01/2025", preguntas: 20 },
         { estado: "Inactivo", titulo: "Exam 2", fecha: "13/01/2025", preguntas: 20 },
         { estado: "Inactivo", titulo: "Exam 2", fecha: "13/01/2025", preguntas: 20 },
-        
+
     ];
 
 
@@ -41,13 +42,11 @@ export const OnlineExam: React.FC = () => {
     const steps = [
         {
             title: 'CREAR EXAMEN',
-            icon: <img src={edit} alt="Edit" className="w-5 h-5" />,
             content: <CreateExamStep setCrearExamen={setCrearExamen} />,
         },
         {
             title: 'AGREGAR PREGUNTAS',
-            icon: <img src={edit} alt="Edit" className="w-5 h-5" />,
-            content: <AddQuestion/>,
+            content: <AddQuestion />,
         },
     ];
 
@@ -56,7 +55,6 @@ export const OnlineExam: React.FC = () => {
             <div className="flex flex-col justify-start h-full w-full px-[2vw]">
                 <h1 className="underline p-[1vw]">MIS EXAMENES</h1>
                 <div className="bg-white p-4 rounded-lg shadow-md h-[85%] w-full  border-2 border-solid border-[#F3F3F3] overflow-auto">
-                    {/* Header */}
                     <div className="grid grid-cols-5 justify-center text-[#016FB4] font-bold p-3 border-b">
                         <div className="flex items-center justify-center">ESTADO</div>
                         <div className="flex items-center justify-center">TITULO</div>
@@ -90,12 +88,18 @@ export const OnlineExam: React.FC = () => {
             <div className='flex justify-end px-[2vw] w-full'>
                 <img src={Mas_blue} alt="" className="cursor-pointer" onClick={() => setCrearExamen(true)} />
             </div>
-            <Modal open={CrearExamen} footer={null} onCancel={() => setCrearExamen(false)} width="45vw">
-                <Steps current={current} >
-                    {steps.map(item => (
-                        <Step key={item.title} title={item.title} icon={item.icon} />
-                    ))}
-                </Steps>
+            <Modal open={CrearExamen} footer={null} onCancel={() => setCrearExamen(false)} width="45vw" style={{ display: 'flex' }}>
+                <div className="flex items-center pt-[1vw] justify-center w-full">
+                    <Steps
+                        className="w-[20vw]"
+                        direction="horizontal"
+                        current={current}
+                    >
+                        {steps.map(item => (
+                            <Step key={item.title} title={item.title} />
+                        ))}
+                    </Steps>
+                </div>
 
                 <div className="steps-content" >{steps[current].content}</div>
                 <div className="flex justify-center w-full" >

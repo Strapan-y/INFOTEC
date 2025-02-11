@@ -54,7 +54,7 @@ export const CreateExamStep: React.FC<CreateExamProps> = ({ setCrearExamen }) =>
 
 
     return (
-        <div className="border-t-[0.2vw] flex justify-center items-center border-solid border-gray-100 w-full h-full pt-[1vw] gap-4 flex-wrap">
+        <div className="border-t-[0.2vw] flex justify-center items-center w-[50vw] h-[30vw] pt-[2vw] gap-4 flex-wrap">
 
             <div>
                 <h1 className='p-1 px-3'>TITULO</h1>
@@ -104,12 +104,12 @@ export const CreateExamStep: React.FC<CreateExamProps> = ({ setCrearExamen }) =>
             <div>
                 <h1 className='p-1 px-3'>CONTRASEÑA</h1>
                 <div className="flex items-center gap-[0.2vw]">
-                    <Switch className='w-[2vw]' defaultChecked />
+                    <Switch className='w-[1vw]' defaultChecked />
                     <input
                         className="border-[0.1vw] h-[2vw] border-solid border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-gray-200 p-2 text-gray-800"
                         type="text"
                         placeholder="Escribe el nombre"
-                        style={{ width: "8.3vw", }}
+                        style={{ width: "7.8vw", }}
                     />
 
                 </div>
@@ -128,9 +128,9 @@ export const CreateExamStep: React.FC<CreateExamProps> = ({ setCrearExamen }) =>
                 <Switch className='w-[2vw]' defaultChecked />
             </div>
 
-            <div className="w-full rounded-xl p-1 h-[17vw]  relative gap-[2vw]">
-                <h1 className="text-lg font-bold mb-2">CONTENIDO</h1>
-                <div className="h-[10vw]">
+            <div className="flex flex-col w-full rounded-xl p-1 h-[17vw] pt-[2vw]">
+                <h1 className="text-[0.8vw] font-bold mb-2">DESCRIPCION DEL EXAMEN</h1>
+                <div className="h-[10vw] w-full">
                     <ReactQuill
                         value={content}
                         onChange={handleContentChange}
