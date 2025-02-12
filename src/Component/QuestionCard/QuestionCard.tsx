@@ -42,6 +42,7 @@ export const QuestionCard: React.FC = () => {
                             { value: "multipleChoice", label: "Múltiple Opción" },
                             { value: "trueFalse", label: "Verdadero/Falso" },
                             { value: "shortAnswer", label: "Respuesta Corta" },
+                            { value: "UniqueOption", label: "Unica opcion" },
                         ]}
                     />
                 </div>
