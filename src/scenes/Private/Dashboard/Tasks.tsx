@@ -4,6 +4,7 @@ import view_eye from '../../../assets/img/view_eye.svg';
 import encuesta from '../../../assets/img/Encuestablue.svg';
 import { useState } from 'react';
 import { Button, Modal, Steps, Switch } from 'antd';
+import { Download } from 'lucide-react';
 
 
 
@@ -42,6 +43,7 @@ export const Tasks: React.FC = () => {
         <div className="w-full h-full flex flex-col items-center justify-start pt-[1vw] p-[1vw]">
             <div className="flex flex-col justify-start h-full w-full px-[2vw]">
                 <h1 className="underline p-[1vw]">MIS TAREAS</h1>
+                <Download className="text-[#016FB4] items.left cursor-pointer" size={20} />
                 <div className="bg-white p-4 rounded-lg shadow-md h-[85%] w-full  border-2 border-solid border-[#F3F3F3] overflow-auto">
                     <div className="grid grid-cols-4 justify-center text-[#016FB4] font-bold p-3 border-b">
                         <div className="flex items-center justify-center">ESTADO</div>
