@@ -6,7 +6,7 @@ import { useState } from 'react';
 import { Button, Modal, Steps, Switch } from 'antd';
 import { CreateExamStep } from './CreateExamStep';
 import { AddQuestion } from './AddQuestions';
-import { set } from 'react-hook-form';
+
 
 
 export const OnlineExam: React.FC = () => {
@@ -17,7 +17,7 @@ export const OnlineExam: React.FC = () => {
 
     const { Step } = Steps;
     const [current, setCurrent] = useState(0);
-    const [isSubmitting, setIsSubmitting] = useState(false);
+
 
     const onChange = (checked: boolean) => {
         console.log(`switch to ${false}`);

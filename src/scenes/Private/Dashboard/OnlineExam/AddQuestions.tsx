@@ -4,13 +4,7 @@ import { QuestionCard } from "../../../../Component/QuestionCard/QuestionCard"
 export const AddQuestion: React.FC = () => {
     const [Questions, setQuestions] = useState([""]);
     const AddQuestions = () => setQuestions([...Questions, ""]);
-
-    const updateQuestion = (index: number, value: string) => {
-        const newQuestions = [...Questions];
-        newQuestions[index] = value;
-        setQuestions(newQuestions);
-    };
-
+    
     return (
         <div className="flex flex-col w-[55vw] min-h-[30vw] pt-[2vw] gap-[2vw] px-[2vw]">
             <div className="overflow-auto h-[25vw] pr-[2vw]">

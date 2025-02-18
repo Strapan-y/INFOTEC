@@ -2,7 +2,6 @@ import { Select } from "antd";
 import { ResponseOptions } from "./ResponseOptions";
 import { useState } from "react";
 
-interface QuestionCardProps { }
 
 export const QuestionCard: React.FC = () => {
     const [questionType, setQuestionType] = useState<string>("multipleChoice");

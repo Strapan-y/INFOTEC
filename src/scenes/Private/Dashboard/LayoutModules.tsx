@@ -12,7 +12,7 @@ import { Content, Header } from "antd/es/layout/layout";
 import { useState } from "react";
 import { Dashboard } from "./Dashboard";
 import { OnlineExam } from "./OnlineExam/OnlineExam";
-import { Tasks } from "./Tasks";
+import { Tasks } from "../Dashboard/Tasks/Tasks";
 import { StudyMaterial } from "./StudyMaterial";
 import { Grades } from "./Grades";
 import { LiveSession } from "./LiveSession";
