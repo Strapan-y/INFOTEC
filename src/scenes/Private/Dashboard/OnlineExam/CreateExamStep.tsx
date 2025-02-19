@@ -55,7 +55,6 @@ export const CreateExamStep: React.FC<CreateExamProps> = ({ setCrearExamen }) =>
 
     return (
         <div className="border-t-[0.2vw] flex justify-center items-center w-[50vw] h-[30vw] pt-[2vw] gap-4 flex-wrap">
-
             <div>
                 <h1 className='p-1 px-3'>TITULO</h1>
                 <input
